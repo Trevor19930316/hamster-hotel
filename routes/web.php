@@ -22,3 +22,9 @@ Route::get('/', function () {
 Route::get('/', function (){
    return view('index');
 });
+
+
+// 前台
+require __DIR__ . 'frontend/frontend.php';
+
+// 後台

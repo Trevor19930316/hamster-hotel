@@ -1,9 +1,9 @@
-@extends('extends.main')
+@extends('frontend.extends.main')
 
 @section('title', 'Home')
 
 @section('content')
-    <div class="alert-danger">
-        測試中
-    </div>
+
+    @include('frontend.example.carousel-slide')
+
 @endsection

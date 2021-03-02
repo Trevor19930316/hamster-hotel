@@ -12,16 +12,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="{{asset('css/frontend/include/navbar.css')}}" rel="stylesheet">
+    <link href="{{asset('css/frontend/templates/include/navbar.css')}}" rel="stylesheet">
     <!-- js -->
-{{--    <script src="{{asset('js/frontend/include/navbar.js')}}"></script>--}}
+{{--    <script src="{{asset('js/frontend/templates/include/navbar.js')}}"></script>--}}
 
     <title>@yield('title')</title>
 </head>
 <body>
 <div class="main-body">
 
-    @include('frontend.include.navbar')
+    @include('frontend.templates.include.navbar')
 
     <div class="main-content">
         @yield('content')

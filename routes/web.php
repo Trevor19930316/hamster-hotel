@@ -25,6 +25,6 @@ Route::get('/', function (){
 
 
 // 前台
-require __DIR__ . 'frontend/frontend.php';
+require 'frontend/frontend.php';
 
 // 後台

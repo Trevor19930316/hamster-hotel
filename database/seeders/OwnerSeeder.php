@@ -16,10 +16,12 @@ class OwnerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('articles')->truncate();
+        DB::table('owners')->truncate();
+        DB::table('hamsters')->truncate();
         Owner::factory()
             ->count(5)
-            ->has(Hamster::factory()->count(2))
+            //->has(Hamster::factory()->count(2))
+            ->hasHamsters(5)
             ->create();
     }
 }

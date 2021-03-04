@@ -22,6 +22,6 @@ class Hamster extends Model
 
     public function owner()
     {
-        return $this->belongsTo(owner::class);
+        return $this->belongsTo(owner::class, 'owners_id');
     }
 }

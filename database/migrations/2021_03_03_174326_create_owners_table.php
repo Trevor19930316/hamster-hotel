@@ -15,9 +15,9 @@ class CreateOwnersTable extends Migration
     {
         Schema::create('owners', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 10);
+            $table->string('name', 30);
             $table->unsignedTinyInteger('sex')->default(0);
-            $table->string('mobile', 10);
+            $table->string('mobile', 20);
             $table->timestamps();
         });
     }

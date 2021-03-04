@@ -28,3 +28,8 @@ Route::get('/', function (){
 require 'frontend/frontend.php';
 
 // 後台
+Route::prefix('backend')->group(function () {
+
+    require 'backend/backend.php';
+
+});

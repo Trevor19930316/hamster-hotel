@@ -16,7 +16,7 @@ class CreateHamstersTable extends Migration
         Schema::create('hamsters', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('owners_id')->index();
-            $table->string('name', 10);
+            $table->string('name', 30);
             $table->string('category', 30);
             $table->unsignedTinyInteger('sex')->default(0);
             $table->unsignedTinyInteger('age_month')->nullable();

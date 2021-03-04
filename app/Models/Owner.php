@@ -9,11 +9,16 @@ class Owner extends Model
 {
     use HasFactory;
 
-    protected $table = 'owner';
+    protected $table = 'owners';
 
     protected $fillable = [
         'name',
         'sex',
         'mobile',
     ];
+
+    public function hamsters()
+    {
+        return $this->hasMany(Hamster::class, 'owners_id');
+    }
 }

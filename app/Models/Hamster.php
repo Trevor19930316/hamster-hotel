@@ -9,7 +9,7 @@ class Hamster extends Model
 {
     use HasFactory;
 
-    protected $table = 'hamster';
+    protected $table = 'hamsters';
 
     protected $fillable = [
         'owners_id',
@@ -19,4 +19,9 @@ class Hamster extends Model
         'age_month',
         'description',
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(owner::class);
+    }
 }

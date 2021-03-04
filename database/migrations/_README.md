@@ -20,6 +20,8 @@
 
 ### 建立尚未執行的 migrations
     php artisan migrate
+    
+    php artisan migrate --env=testing
 
 ### 移除上一次建立的 migrations
     php artisan migrate:rollback

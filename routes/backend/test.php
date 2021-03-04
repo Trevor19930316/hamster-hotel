@@ -10,6 +10,10 @@ Route::get('test', function () {
     DB::table('owners')->truncate();
     DB::table('hamsters')->truncate();
 
+    $data = [
+        'Trevor 很帥'
+    ];
+
 //    $data = Owner::factory()
 //        ->count(5)
 //        ->has(Hamster::factory()->count(2))

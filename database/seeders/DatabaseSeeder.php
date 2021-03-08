@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             OwnerSeeder::class,
             HamsterSeeder::class,
+            UserSeeder::class,
         ]);
 
     }

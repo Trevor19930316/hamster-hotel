@@ -21,7 +21,7 @@
 <body>
 <div class="main-body">
 
-    @include('frontend.templates.include.navbar')
+    @include('frontend.template.include.navbar')
 
     <div class="main-content">
         @yield('content')

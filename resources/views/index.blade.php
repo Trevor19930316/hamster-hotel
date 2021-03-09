@@ -1,9 +1,9 @@
-@extends('frontend.templates.extends.main')
+@extends('frontend.template.extends.main')
 
 @section('title', 'Home')
 
 @section('content')
 
-    @include('frontend.templates.example.carousel-slide')
+    @include('frontend.template.example.carousel-slide')
 
 @endsection

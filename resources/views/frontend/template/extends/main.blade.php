@@ -12,7 +12,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="{{asset('css/frontend/templates/include/navbar.css')}}" rel="stylesheet">
+    <link href="{{asset('css/frontend/templates/navbar.css')}}" rel="stylesheet">
     <!-- js -->
 {{--    <script src="{{asset('js/frontend/templates/include/navbar.js')}}"></script>--}}
 

@@ -4,10 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserLoginRequest;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -28,16 +28,36 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only(['email', 'password']);
+        Debugbar::info($request);
 
-        $remember = !is_null($request->input('remember')) ? true : false;
+        $credentials = $request->only(['email', 'password']);
 
         $validateRules = [
             'email' => ['required', 'email'],
             'password' => ['required'],
         ];
 
+        $validateMessages = [
+            'required' => __('validation.required'),
+            'email' => __('validation.email')
+        ];
+
+        $validateCustomAttributes = [
+            'email' => '電子郵件',
+            'password' => '密碼',
+        ];
+
+        $validator = Validator::make($credentials, $validateRules, $validateMessages, $validateCustomAttributes);
+
+//        dump($validator->validate());
+//        dump($validator->validateWithBag('post'));
+        dump($validator->errors());
+        dd($validator);
+
+        $remember = !is_null($request->input('remember')) ? true : false;
+
         if (Auth::guard('web')->attempt($credentials, $remember)) {
+
             $request->session()->regenerate();
 
             return redirect()->route('backend.dashboard');

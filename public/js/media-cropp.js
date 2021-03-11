@@ -163,7 +163,7 @@ document.getElementById('cropp-img-save-button').addEventListener('click', this.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\web\hamster-hotel\resources\js\coreui\media-cropp.js */"./resources/js/coreui/media-cropp.js");
+module.exports = __webpack_require__(/*! C:\learning\hamster-hotel\resources\js\coreui\media-cropp.js */"./resources/js/coreui/media-cropp.js");
 
 
 /***/ })

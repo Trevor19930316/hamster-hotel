@@ -161,7 +161,7 @@ document.getElementById("type").onchange = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\web\hamster-hotel\resources\js\coreui\menu-edit.js */"./resources/js/coreui/menu-edit.js");
+module.exports = __webpack_require__(/*! C:\learning\hamster-hotel\resources\js\coreui\menu-edit.js */"./resources/js/coreui/menu-edit.js");
 
 
 /***/ })

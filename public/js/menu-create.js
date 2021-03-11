@@ -164,8 +164,8 @@ document.getElementById("type").onchange = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\web\hamster-hotel\resources\js\coreui\menu-create.js */"./resources/js/coreui/menu-create.js");
-module.exports = __webpack_require__(/*! C:\web\hamster-hotel\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\learning\hamster-hotel\resources\js\coreui\menu-create.js */"./resources/js/coreui/menu-create.js");
+module.exports = __webpack_require__(/*! C:\learning\hamster-hotel\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

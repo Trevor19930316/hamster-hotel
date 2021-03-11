@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', function (){
-   return view('index');
+Route::get('/', function () {
+    return view('index');
 });
 
 
@@ -33,3 +33,15 @@ Route::prefix('backend')->group(function () {
     require 'backend/backend.php';
 
 });
+
+// template
+
+Route::group(['middleware' => ['get.menu']], function () {
+
+    Route::get('/template/homepage', function () {
+        return view('template.homepage');
+    });
+
+});
+
+

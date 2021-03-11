@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             OwnerSeeder::class,
             HamsterSeeder::class,
             UserSeeder::class,
+            MenusTableSeeder::class,
         ]);
 
     }

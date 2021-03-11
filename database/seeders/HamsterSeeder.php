@@ -15,6 +15,7 @@ class HamsterSeeder extends Seeder
      */
     public function run()
     {
+        /*
         Hamster::factory()
             ->count(2)
             ->for(Owner::factory())
@@ -23,5 +24,6 @@ class HamsterSeeder extends Seeder
 //            ]))
 //            ->forOwner()
             ->create();
+         */
     }
 }

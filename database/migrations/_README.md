@@ -34,3 +34,5 @@
     
 ### 清除(Reset)表格並重新建立所有 migrations
     php artisan migrate:refresh
+
+    php artisan migrate:refresh --seed

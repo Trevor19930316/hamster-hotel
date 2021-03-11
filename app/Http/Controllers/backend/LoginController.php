@@ -47,8 +47,7 @@ class LoginController extends Controller
             ->validate();
 
         if (!$validateStatus) {
-
-            dd($AdamValidator->getErrorMessages());
+            return redirect()->back()->withErrors($AdamValidator->getErrorMessages());
         }
 
         $remember = !is_null($request->input('remember')) ? true : false;
@@ -58,11 +57,10 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             return redirect()->route('backend.dashboard');
+
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return redirect()->route('backend.login.logout');
     }
 
     // 登出頁

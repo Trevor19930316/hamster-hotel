@@ -42,6 +42,7 @@ class UserSeeder extends Seeder
             'name' => 'Trevor',
             'email' => 'trevor19930316@gmail.com',
             'password' => Hash::make('111111'),
+//            'password' => bcrypt('111111'),
             'menu_roles' => 'user,admin'
         ]);
         $user->assignRole('admin');

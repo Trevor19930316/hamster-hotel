@@ -4,10 +4,11 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserLoginRequest;
-use DebugBar\DebugBar;
+use Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Libraries\AdamValidator;
 
 class LoginController extends Controller
 {
@@ -28,31 +29,27 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        Debugbar::info($request);
+        // app('debugbar')->warning('Watch out..');
 
-        $credentials = $request->only(['email', 'password']);
+        $credentials = $request->only([
+            'email',
+            'password'
+        ]);
 
         $validateRules = [
             'email' => ['required', 'email'],
             'password' => ['required'],
         ];
 
-        $validateMessages = [
-            'required' => __('validation.required'),
-            'email' => __('validation.email')
-        ];
+        $AdamValidator = new AdamValidator('users');
+        $validateStatus = $AdamValidator->setValidateData($credentials)
+            ->setValidateRules($validateRules)
+            ->validate();
 
-        $validateCustomAttributes = [
-            'email' => '電子郵件',
-            'password' => '密碼',
-        ];
+        if (!$validateStatus) {
 
-        $validator = Validator::make($credentials, $validateRules, $validateMessages, $validateCustomAttributes);
-
-//        dump($validator->validate());
-//        dump($validator->validateWithBag('post'));
-        dump($validator->errors());
-        dd($validator);
+            dd($AdamValidator->getErrorMessages());
+        }
 
         $remember = !is_null($request->input('remember')) ? true : false;
 

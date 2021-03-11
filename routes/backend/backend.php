@@ -14,10 +14,19 @@ require 'test.php';
 
 Route::middleware(['auth:web'])->group(function () {
 
-    Route::get('dashboard', function (){
+    Route::group(['middleware' => ['get.menu']], function () {
 
-        return view('backend.dashboard');
+        Route::get('dashboard', function () {
 
-    })->name('backend.dashboard');
+            return view('backend.dashboard');
+
+        })->name('backend.dashboard');
+
+        // template
+        Route::get('/template/homepage', function () {
+            return view('template.homepage');
+        });
+
+    });
 
 });

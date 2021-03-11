@@ -34,14 +34,4 @@ Route::prefix('backend')->group(function () {
 
 });
 
-// template
-
-Route::group(['middleware' => ['get.menu']], function () {
-
-    Route::get('/template/homepage', function () {
-        return view('template.homepage');
-    });
-
-});
-
 

@@ -1,9 +1,9 @@
-@extends('backend.template.extends.main')
+@extends('backend.template.base')
 
-@section('title', '這是首頁')
+@section('title', '首頁')
 
 @section('content')
     <?php
-    dump(session()->all());
+    //dump(session()->all());
     ?>
 @endsection

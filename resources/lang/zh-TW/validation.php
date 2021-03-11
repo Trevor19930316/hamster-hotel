@@ -1,6 +1,6 @@
 <?php
-$AdamValidator = new Libraries\Adam\AdamValidator();
-$attributes = $AdamValidator->cacheValidationAttributes();
+use Libraries\Adam\AdamValidator;
+$attributes = AdamValidator::cacheValidationAttributes();
 
 return [
 
@@ -41,7 +41,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => ':attribute 必須符合 email 格式',
+    'email' => ':attribute 必須符合電子信箱格式',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists' => 'The selected :attribute is invalid.',
     'file' => 'The :attribute must be a file.',

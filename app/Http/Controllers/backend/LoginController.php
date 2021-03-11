@@ -41,18 +41,7 @@ class LoginController extends Controller
             'password' => ['required'],
         ];
 
-        $validator = Validator::make($credentials, $validateRules);
-        /*
-        dump($validator->fails());
-        dump($validator->errors());
-        dump($validator->errors()->getMessages());
-        dump($validator->errors()->getFormat());
-        dump($validator->errors()->getMessageBag());
-
-        dump('----------------------------------------------------------------------------------');
-
         $AdamValidator = new AdamValidator('users');
-
         $validateStatus = $AdamValidator->setValidateData($credentials)
             ->setValidateRules($validateRules)
             ->validate();
@@ -63,7 +52,7 @@ class LoginController extends Controller
         }
 
         dd($validateStatus);
-        */
+
 
         $remember = !is_null($request->input('remember')) ? true : false;
 

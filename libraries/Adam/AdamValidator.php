@@ -34,7 +34,7 @@ Class AdamValidator
     public function setValidateData(array $validateData)
     {
         foreach ($validateData as $key => $value) {
-            $this->validateData[$this->table . '.' . $key] = $value;
+            $this->validateData[$this->table . '-' . $key] = $value;
         }
 
         return $this;
@@ -48,7 +48,7 @@ Class AdamValidator
     public function setValidateRules(array $validateRules)
     {
         foreach ($validateRules as $key => $value) {
-            $this->validateRules[$this->table . '.' . $key] = $value;
+            $this->validateRules[$this->table . '-' . $key] = $value;
         }
 
         return $this;
@@ -70,12 +70,15 @@ Class AdamValidator
     {
         $validator = Validator::make($this->validateData, $this->validateRules);
 
+        dump($this->validateData);
+        dump($this->validateRules);
+
         if ($validator->fails()) {
             $this->errorMessages = $validator->errors()->getMessages();
-            dump($validator->errors());
-            dump($validator->errors()->getMessages());
-            dump($validator->errors()->getFormat());
-            dump($validator->errors()->getMessageBag());
+//            dump($validator->errors());
+//            dump($validator->errors()->getMessages());
+//            dump($validator->errors()->getFormat());
+//            dump($validator->errors()->getMessageBag());
             return false;
         }
 
@@ -86,7 +89,7 @@ Class AdamValidator
      * 驗證資料自訂語系 cache
      * @return mixed
      */
-    public function cacheValidationAttributes()
+    public static function cacheValidationAttributes()
     {
         $locale = app()->getLocale();
         $cacheName = "validation_attributes_$locale";
@@ -106,7 +109,7 @@ Class AdamValidator
 
                 $validationAttributes = [];
                 foreach ($langArr as $column => $lang) {
-                    $validationAttributes[$tableName . '.' . $column] = $lang;
+                    $validationAttributes[$tableName . '-' . $column] = $lang;
                 }
                 $cacheValidationAttributes += $validationAttributes;
             }

@@ -15,7 +15,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.2"
+        "laravel/ui": "^3.2",
+        "spatie/laravel-medialibrary": "^8.7.2",
+        "spatie/laravel-permission": "^3.17"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -40,9 +42,16 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Libraries": "libraries/",
-            "Database\\Seeders\\": "database/seeders/"
-        }
+            "Database\\Seeders\\": "database/seeders/",
+            "Libraries\\": "libraries/"
+        },
+        "classmap": [
+            "database",
+            "database/seeders",
+            "database/factories"
+        ],
+        "files": [
+        ]
     },
     "autoload-dev": {
         "psr-4": {

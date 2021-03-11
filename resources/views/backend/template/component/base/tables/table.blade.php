@@ -1,7 +1,8 @@
 <?php
 // table 模組
 /* table 類型 */
-$tableType = $tableType ?? 'default'; // Striped | Condensed | Bordered | Combined
+// Striped | Condensed | Bordered | Combined
+$tableType = $tableType ?? 'default';
 $tableTypeClass = null;
 if ($tableType == 'Striped') {
     $tableTypeClass = 'table-striped';

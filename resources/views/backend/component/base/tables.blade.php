@@ -8,9 +8,11 @@
         <div class="fade-in">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header"><i class="fa fa-align-justify"></i> Simple Table</div>
-                        <div class="card-body">
+                    @component('backend.template.component.base.cards.card')
+                        @slot('cardTitle')
+                            <i class="fa fa-align-justify"></i> Simple Table
+                        @endslot
+                        @slot('cardContent')
                             @component('backend.template.component.base.tables.table')
                                 @slot('tableThead')
                                     <tr>
@@ -61,14 +63,16 @@
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        @endslot
+                    @endcomponent
                 </div>
                 <!-- /.col-->
                 <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header"><i class="fa fa-align-justify"></i> Striped Table</div>
-                        <div class="card-body">
+                    @component('backend.template.component.base.cards.card')
+                        @slot('cardTitle')
+                            <i class="fa fa-align-justify"></i> Striped Table
+                        @endslot
+                        @slot('cardContent')
                             @component('backend.template.component.base.tables.table')
                                 @slot('tableThead','Striped')
                                 @slot('tableThead')
@@ -120,17 +124,19 @@
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        @endslot
+                    @endcomponent
                 </div>
                 <!-- /.col-->
             </div>
             <!-- /.row-->
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header"><i class="fa fa-align-justify"></i> Condensed Table</div>
-                        <div class="card-body">
+                    @component('backend.template.component.base.cards.card')
+                        @slot('cardTitle')
+                            <i class="fa fa-align-justify"></i> Condensed Table
+                        @endslot
+                        @slot('cardContent')
                             @component('backend.template.component.base.tables.table')
                                 @slot('tableThead','Condensed')
                                 @slot('tableThead')
@@ -182,14 +188,16 @@
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        @endslot
+                    @endcomponent
                 </div>
                 <!-- /.col-->
                 <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header"><i class="fa fa-align-justify"></i> Bordered Table</div>
-                        <div class="card-body">
+                    @component('backend.template.component.base.cards.card')
+                        @slot('cardTitle')
+                            <i class="fa fa-align-justify"></i> Bordered Table
+                        @endslot
+                        @slot('cardContent')
                             @component('backend.template.component.base.tables.table')
                                 @slot('tableThead','Bordered')
                                 @slot('tableThead')
@@ -241,17 +249,20 @@
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        @endslot
+                    @endcomponent
                 </div>
                 <!-- /.col-->
             </div>
             <!-- /.row-->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header"><i class="fa fa-align-justify"></i> Combined All Table</div>
-                        <div class="card-body">
+
+                    @component('backend.template.component.base.cards.card')
+                        @slot('cardTitle')
+                            <i class="fa fa-align-justify"></i> Combined All Table
+                        @endslot
+                        @slot('cardContent')
                             @component('backend.template.component.base.tables.table')
                                 @slot('tableThead','Combined')
                                 @slot('tableThead')
@@ -305,8 +316,8 @@
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
                             </nav>
-                        </div>
-                    </div>
+                        @endslot
+                    @endcomponent
                 </div>
                 <!-- /.col-->
             </div>

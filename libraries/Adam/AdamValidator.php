@@ -70,15 +70,8 @@ Class AdamValidator
     {
         $validator = Validator::make($this->validateData, $this->validateRules);
 
-        dump($this->validateData);
-        dump($this->validateRules);
-
         if ($validator->fails()) {
             $this->errorMessages = $validator->errors()->getMessages();
-//            dump($validator->errors());
-//            dump($validator->errors()->getMessages());
-//            dump($validator->errors()->getFormat());
-//            dump($validator->errors()->getMessageBag());
             return false;
         }
 

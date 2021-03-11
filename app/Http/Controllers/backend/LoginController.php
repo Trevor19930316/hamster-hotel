@@ -51,9 +51,6 @@ class LoginController extends Controller
             dd($AdamValidator->getErrorMessages());
         }
 
-        dd($validateStatus);
-
-
         $remember = !is_null($request->input('remember')) ? true : false;
 
         if (Auth::guard('web')->attempt($credentials, $remember)) {

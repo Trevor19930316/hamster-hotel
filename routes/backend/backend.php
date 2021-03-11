@@ -22,6 +22,14 @@ Route::middleware(['auth:web'])->group(function () {
 
         })->name('backend.dashboard');
 
+        // component
+        Route::prefix('component')->group(function () {
+
+            // base
+            require 'component/base.php';
+
+        });
+
         // template
         Route::get('/template/homepage', function () {
             return view('template.homepage');

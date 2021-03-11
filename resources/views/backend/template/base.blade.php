@@ -56,17 +56,13 @@
 
 <body class="c-app">
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-
     @include('backend.template.shared.nav-builder')
-
+</div>
+<div class="c-wrapper">
     @include('backend.template.shared.header')
-
     <div class="c-body">
-
         <main class="c-main">
-
             @yield('content')
-
         </main>
         @include('backend.template.shared.footer')
     </div>

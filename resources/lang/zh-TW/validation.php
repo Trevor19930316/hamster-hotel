@@ -1,5 +1,5 @@
 <?php
-$AdamValidator = new Libraries\AdamValidator();
+$AdamValidator = new Libraries\Adam\AdamValidator();
 $attributes = $AdamValidator->cacheValidationAttributes();
 
 return [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Libraries;
+namespace Libraries\Adam;
 
 use Exception;
 use Illuminate\Support\Facades\Cache;
@@ -65,25 +65,17 @@ Class AdamValidator
     /**
      * 資料驗證
      * @return bool
-     * @throws Exception
      */
     public function validate(): bool
     {
-        if (is_null($this->table)) {
-            throw new Exception(get_class($this) . 'do not set table');
-        }
+        $validator = Validator::make($this->validateData, $this->validateRules);
 
-        try {
-            $validator = Validator::make($this->validateData, $this->validateRules);
-
-            if ($validator->fails()) {
-                $this->errorMessages = $validator->errors()->getMessages();
-                return false;
-            }
-
-        } catch (Exception $e) {
-
-            dump($e->getMessage());
+        if ($validator->fails()) {
+            $this->errorMessages = $validator->errors()->getMessages();
+            dump($validator->errors());
+            dump($validator->errors()->getMessages());
+            dump($validator->errors()->getFormat());
+            dump($validator->errors()->getMessageBag());
             return false;
         }
 
@@ -109,7 +101,7 @@ Class AdamValidator
 
                 $tableName = head($table);
 
-                $langArr = trans("$tableName/table_lang'");
+                $langArr = trans("$tableName/table_lang");
                 $langArr = is_array($langArr) ? $langArr : [];
 
                 $validationAttributes = [];

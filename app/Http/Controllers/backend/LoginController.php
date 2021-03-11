@@ -8,7 +8,7 @@ use Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Libraries\AdamValidator;
+use Libraries\Adam\AdamValidator;
 
 class LoginController extends Controller
 {
@@ -41,7 +41,18 @@ class LoginController extends Controller
             'password' => ['required'],
         ];
 
+        $validator = Validator::make($credentials, $validateRules);
+        /*
+        dump($validator->fails());
+        dump($validator->errors());
+        dump($validator->errors()->getMessages());
+        dump($validator->errors()->getFormat());
+        dump($validator->errors()->getMessageBag());
+
+        dump('----------------------------------------------------------------------------------');
+
         $AdamValidator = new AdamValidator('users');
+
         $validateStatus = $AdamValidator->setValidateData($credentials)
             ->setValidateRules($validateRules)
             ->validate();
@@ -50,6 +61,9 @@ class LoginController extends Controller
 
             dd($AdamValidator->getErrorMessages());
         }
+
+        dd($validateStatus);
+        */
 
         $remember = !is_null($request->input('remember')) ? true : false;
 

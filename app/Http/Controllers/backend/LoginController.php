@@ -56,7 +56,7 @@ class LoginController extends Controller
             return redirect()->route('backend.dashboard');
         }
 
-        return redirect()->route('backend.login.logout');
+        return redirect()->back()->withErrors(__('template/login.account_or_password_invalid'));
     }
 
     // 登出頁
@@ -72,6 +72,5 @@ class LoginController extends Controller
         HelperSession::clearUserSession();
 
         return redirect()->route('backend.login.login');
-
     }
 }

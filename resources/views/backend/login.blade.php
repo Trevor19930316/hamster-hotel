@@ -99,6 +99,13 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary login-btn btn-block">登入</button>
                 </div>
+                @if($errors->all())
+                    <div class="form-group small">
+                        @foreach($errors->all() as $error)
+                            <div class="text-danger font-weight-bold">{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="clearfix">
                     <label class="pull-left checkbox-inline float-left">
                         <input type="checkbox" name="remember">

@@ -22,11 +22,14 @@ Route::middleware(['auth:web'])->group(function () {
 
         })->name('backend.dashboard');
 
-        // component
-        Route::prefix('component')->group(function () {
+        // components
+        Route::prefix('components')->group(function () {
 
             // base
-            require 'component/base.php';
+            require 'components/base.php';
+
+            // element
+            require 'components/element.php';
 
         });
 

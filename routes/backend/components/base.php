@@ -3,11 +3,11 @@
 Route::prefix('base')->group(function () {
 
     Route::get('/cards', function () {
-        return view('backend.component.base.cards');
+        return view('backend.components.base.cards');
     });
 
     Route::get('/tables', function () {
-        return view('backend.component.base.tables');
+        return view('backend.components.base.tables');
     });
 
 });

@@ -8,12 +8,12 @@
         <div class="fade-in">
             <div class="row">
                 <div class="col-lg-6">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardTitle')
                             <i class="fa fa-align-justify"></i> Simple Table
                         @endslot
                         @slot('cardContent')
-                            @component('backend.template.component.base.tables.table')
+                            @component('backend.template.components.base.tables.table')
                                 @slot('tableThead')
                                     <tr>
                                         <th>Username</th>
@@ -68,12 +68,12 @@
                 </div>
                 <!-- /.col-->
                 <div class="col-lg-6">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardTitle')
                             <i class="fa fa-align-justify"></i> Striped Table
                         @endslot
                         @slot('cardContent')
-                            @component('backend.template.component.base.tables.table')
+                            @component('backend.template.components.base.tables.table')
                                 @slot('tableThead','Striped')
                                 @slot('tableThead')
                                     <tr>
@@ -132,12 +132,12 @@
             <!-- /.row-->
             <div class="row">
                 <div class="col-lg-6">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardTitle')
                             <i class="fa fa-align-justify"></i> Condensed Table
                         @endslot
                         @slot('cardContent')
-                            @component('backend.template.component.base.tables.table')
+                            @component('backend.template.components.base.tables.table')
                                 @slot('tableThead','Condensed')
                                 @slot('tableThead')
                                     <tr>
@@ -193,12 +193,12 @@
                 </div>
                 <!-- /.col-->
                 <div class="col-lg-6">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardTitle')
                             <i class="fa fa-align-justify"></i> Bordered Table
                         @endslot
                         @slot('cardContent')
-                            @component('backend.template.component.base.tables.table')
+                            @component('backend.template.components.base.tables.table')
                                 @slot('tableThead','Bordered')
                                 @slot('tableThead')
                                     <tr>
@@ -258,12 +258,12 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardTitle')
                             <i class="fa fa-align-justify"></i> Combined All Table
                         @endslot
                         @slot('cardContent')
-                            @component('backend.template.component.base.tables.table')
+                            @component('backend.template.components.base.tables.table')
                                 @slot('tableThead','Combined')
                                 @slot('tableThead')
                                     <tr>

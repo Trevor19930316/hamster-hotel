@@ -202,10 +202,21 @@ class MenusTableSeeder extends Seeder
 
 //        $this->insertLink('user,admin', 'Widgets', '/widgets', 'cil-calculator');
 
-        $this->insertTitle('admin', 'Component');
+        $this->insertTitle('admin', 'Components');
+
         $this->beginDropdown('admin', 'Base', 'cil-puzzle');
-        $this->insertLink('admin', 'Cards', '/backend/component/base/cards');
-        $this->insertLink('admin', 'Tables', '/backend/component/base/tables');
+        $this->insertLink('admin', 'Cards', '/backend/components/base/cards');
+        $this->insertLink('admin', 'Tables', '/backend/components/base/tables');
+        $this->endDropdown();
+
+        $this->beginDropdown('admin', 'Element', 'cil-diamond');
+        $this->insertLink('admin', 'Input', '/backend/components/element/input');
+        $this->insertLink('admin', 'Checkbox', '/backend/components/element/checkbox');
+        $this->insertLink('admin', 'Radio', '/backend/components/element/radio');
+        $this->insertLink('admin', 'Select', '/backend/components/element/select');
+        $this->insertLink('admin', 'Image', '/backend/components/element/image');
+        $this->insertLink('admin', 'File', '/backend/components/element/file');
+        $this->insertLink('admin', 'Pagination', '/backend/components/element/pagination');
         $this->endDropdown();
 
         $this->insertTitle('admin', 'Extras');

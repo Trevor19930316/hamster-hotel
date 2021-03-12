@@ -8,7 +8,7 @@
         <div class="fade-in">
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardTitle')
                             Card title
                             <span class="badge badge-success float-right">Success</span>
@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardBorder','primary')
                         @slot('cardTitle')
                             Card outline
@@ -43,7 +43,7 @@
                     @endcomponent
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardAccent','primary')
                         @slot('cardTitle')
                             Card with accent
@@ -59,7 +59,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardBorder','secondary')
                         @slot('cardTitle')
                             Card outline
@@ -73,7 +73,7 @@
                     @endcomponent
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardAccent','secondary')
                         @slot('cardTitle')
                             Card with accent
@@ -89,7 +89,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardBorder','success')
                         @slot('cardTitle')
                             Card outline
@@ -103,7 +103,7 @@
                     @endcomponent
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardAccent','success')
                         @slot('cardTitle')
                             Card with accent
@@ -119,7 +119,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardBorder','info')
                         @slot('cardTitle')
                             Card outline
@@ -133,7 +133,7 @@
                     @endcomponent
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardAccent','info')
                         @slot('cardTitle')
                             Card with accent
@@ -149,7 +149,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardBorder','warning')
                         @slot('cardTitle')
                             Card outline
@@ -163,7 +163,7 @@
                     @endcomponent
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardAccent','warning')
                         @slot('cardTitle')
                             Card with accent
@@ -179,7 +179,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardBorder','danger')
                         @slot('cardTitle')
                             Card outline
@@ -193,7 +193,7 @@
                     @endcomponent
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    @component('backend.template.component.base.cards.card')
+                    @component('backend.template.components.base.cards.card')
                         @slot('cardAccent','danger')
                         @slot('cardTitle')
                             Card with accent

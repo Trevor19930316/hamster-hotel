@@ -47,6 +47,7 @@ class LoginController extends Controller
             ->validate();
 
         if (!$validateStatus) {
+            dd($AdamValidator->getErrorMessages());
             return redirect()->back()->withErrors($AdamValidator->getErrorMessages());
         }
 
@@ -57,7 +58,6 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             return redirect()->route('backend.dashboard');
-
         }
 
         return redirect()->route('backend.login.logout');

@@ -7,31 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('test', function () {
 
-    DB::table('owners')->truncate();
-    DB::table('hamsters')->truncate();
+    $path = app_path('Helper\Validator');
 
-    $data = [
-        'Trevor 很帥'
-    ];
-
-//    $data = Owner::factory()
-//        ->count(5)
-//        ->has(Hamster::factory()->count(2))
-//        ->hasHamsters(3, ['sex' => 99])
-//        ->hasHamsters(3, function (array $attributes, Owner $owner){
-//            return ['sex' => $owner->sex];
-//        })
-//        ->create();
-
-//    $data = Hamster::factory()
-//        ->count(2)
-//        ->for(Owner::factory()->state([
-//            'name' => 'Trevor Big Bird',
-//        ]))
-//        ->for(Owner::factory())
-//        ->forOwner()
-//        ->create();
-
-    dump($data);
+    dd($path);
 
 })->name('backend.test');

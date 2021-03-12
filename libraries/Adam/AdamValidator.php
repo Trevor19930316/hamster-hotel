@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-Class AdamValidator
+Class AdamValidator extends Validator
 {
     // 表格名稱
     protected $table = '';
@@ -68,7 +68,7 @@ Class AdamValidator
      */
     public function validate(): bool
     {
-        $validator = Validator::make($this->validateData, $this->validateRules);
+        $validator = parent::make($this->validateData, $this->validateRules);
 
         if ($validator->fails()) {
             $this->errorMessages = $validator->errors()->getMessages();

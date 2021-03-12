@@ -116,26 +116,40 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
-    'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute format is invalid.',
-    'uuid' => 'The :attribute must be a valid UUID.',
+    'unique' => ':attribute 已被使用。',
+    'uploaded' => ':attribute 上傳失敗。',
+    'url' => ':attribute 格式無效',
+    'uuid' => ':attribute 必須為有效的 UUID.',
+
+    // 自定義驗證
+    'check_data_hash' => ':attribute 錯誤，請重新確認。',
 
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
     |--------------------------------------------------------------------------
     |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
+    | here you may specify custom validation messages for attributes using the
+    | convention "attribute.rule" to name the lines. this makes it quick to
     | specify a specific custom language line for a given attribute rule.
     |
     */
 
+    /*
+    | By Trevor 2021-03-12
+    |--------------------------------------------------------------------------
+    | 目前查看官方等相關文件，推測此處使用在自定義的 Rules 裡的 message()
+    | https://laracasts.com/discuss/channels/laravel/custom-validation-message-with-translation
+    | https://stackoverflow.com/questions/28811423/how-to-give-custom-validation-messages-in-laravel-5
+    | https://webomnizz.com/custom-validation-with-laravel/
+    |
+    */
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        // custom language
+
     ],
 
     /*

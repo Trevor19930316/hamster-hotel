@@ -176,7 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\CustomValidatorProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
     ],
 

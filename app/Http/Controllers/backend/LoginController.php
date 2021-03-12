@@ -19,15 +19,6 @@ class LoginController extends Controller
         return view('backend.login');
     }
 
-    /*
-    // login 登入
-    public function login(UserLoginRequest $request)
-    {
-        $validated = $request->validated();
-
-    }
-    */
-
     public function login(Request $request)
     {
         // app('debugbar')->warning('Watch out..');
@@ -59,7 +50,7 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
-            // 設定 Session
+            // 設定 User Session
             HelperSession::makeUserSession($user);
 
             return redirect()->route('backend.dashboard');
@@ -71,11 +62,14 @@ class LoginController extends Controller
     // 登出頁
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        // 清空 User session
+        HelperSession::clearUserSession();
 
         return redirect()->route('backend.login.login');
 

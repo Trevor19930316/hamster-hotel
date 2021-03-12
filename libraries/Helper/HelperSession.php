@@ -17,4 +17,13 @@ Class HelperSession
             'email' => $user->email,
         ]);
     }
+
+    public static function clearUserSession()
+    {
+        session()->forget([
+            'id',
+            'name',
+            'email',
+        ]);
+    }
 }

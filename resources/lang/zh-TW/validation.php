@@ -1,6 +1,6 @@
 <?php
-use Libraries\Adam\AdamValidator;
-$attributes = AdamValidator::cacheValidationAttributes();
+use Libraries\Helper\HelperValidator;
+$attributes = HelperValidator::cacheValidationAttributes();
 
 return [
 

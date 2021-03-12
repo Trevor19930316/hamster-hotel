@@ -8,7 +8,7 @@ use Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Libraries\Adam\AdamValidator;
+use Libraries\Helper\HelperValidator;
 
 class LoginController extends Controller
 {
@@ -41,14 +41,13 @@ class LoginController extends Controller
             'password' => ['required'],
         ];
 
-        $AdamValidator = new AdamValidator('users');
-        $validateStatus = $AdamValidator->setValidateData($credentials)
+        $HelperValidator = new HelperValidator('users');
+        $validateStatus = $HelperValidator->setValidateData($credentials)
             ->setValidateRules($validateRules)
             ->validate();
 
         if (!$validateStatus) {
-            dd($AdamValidator->getErrorMessages());
-            return redirect()->back()->withErrors($AdamValidator->getErrorMessages());
+            return redirect()->back()->withErrors($HelperValidator->getErrorMessages());
         }
 
         $remember = !is_null($request->input('remember')) ? true : false;
@@ -56,6 +55,20 @@ class LoginController extends Controller
         if (Auth::guard('web')->attempt($credentials, $remember)) {
 
             $request->session()->regenerate();
+
+            // 設定 Session
+            $dealerSessions['id'] = $dealer->id;
+            $dealerSessions['dealers_levels_id'] = $dealer->dealers_levels_id;
+            $dealerSessions['dealers_levels_name'] = $dealersLevels[$dealer->dealers_levels_id];
+            $dealerSessions['account'] = $dealer->account;
+            $dealerSessions['name'] = $dealer->name;
+            $dealerSessions['is_useful'] = $dealer->is_useful;
+            $dealerSessions['language'] = $dealer->language;
+            $dealerSessions['godlike'] = $dealer->godlike;
+            $dealerSessions['agent_id'] = session('agent_id');
+            $dealerSessions['agent_account'] = session('agent_account');
+            $dealerSessions['agent_expired_at'] = session('agent_expired_at');
+            session($dealerSessions);
 
             return redirect()->route('backend.dashboard');
         }

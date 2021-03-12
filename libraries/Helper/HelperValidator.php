@@ -1,13 +1,13 @@
 <?php
 
-namespace Libraries\Adam;
+namespace Libraries\Helper;
 
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-Class AdamValidator extends Validator
+Class HelperValidator extends Validator
 {
     // 表格名稱
     protected $table = '';
@@ -29,7 +29,7 @@ Class AdamValidator extends Validator
     /**
      * 設定 驗證資料
      * @param array $validateData
-     * @return AdamValidator
+     * @return HelperValidator
      */
     public function setValidateData(array $validateData)
     {
@@ -43,7 +43,7 @@ Class AdamValidator extends Validator
     /**
      * 設定 驗證規則
      * @param array $validateRules
-     * @return AdamValidator
+     * @return HelperValidator
      */
     public function setValidateRules(array $validateRules)
     {

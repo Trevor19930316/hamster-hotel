@@ -124,17 +124,49 @@
         </li>
     </ul>
     <div class="c-subheader px-3">
+
+        {{-- breadcrumb --}}
+        <?php
+        use Illuminate\Support\Facades\Request;
+        $nowHref = '/' . Request::route()->uri;
+        $Menus = new \App\Models\Menus();
+        $menu = $Menus->where('href', '=', $nowHref)->first();
+
+        $breadcrumbs = [];
+
+        $breadcrumbs[$menu->sequence] = [
+            'name' => $menu->name,
+            'href' => $menu->href,
+            'slug' => $menu->slug,
+        ];
+
+        while (!is_null($menu->parent_id)) {
+
+            $menu = $Menus->where('id', '=', $menu->parent_id)->first();
+
+            $breadcrumbs[$menu->sequence] = [
+                'name' => $menu->name,
+                'href' => $menu->href,
+                'slug' => $menu->slug,
+            ];
+        }
+        ksort($breadcrumbs);
+        ?>
         <ol class="breadcrumb border-0 m-0">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <?php $segments = ''; ?>
-            @for($i = 1; $i <= count(Request::segments()); $i++)
-                <?php $segments .= '/' . Request::segment($i); ?>
-                @if($i < count(Request::segments()))
-                    <li class="breadcrumb-item">{{ Request::segment($i) }}</li>
-                @else
-                    <li class="breadcrumb-item active">{{ Request::segment($i) }}</li>
-                @endif
-            @endfor
+            @foreach($breadcrumbs as $breadcrumb)
+                <?php
+                $active = $breadcrumb['href'] == $nowHref ? 'active' : null;
+                ?>
+                <li class="breadcrumb-item {{$active}}">
+                    @if (is_null($active) && !is_null($breadcrumb['href']) && $breadcrumb['slug'] == 'link')
+                        <a href="{{url($breadcrumb['href'])}}">
+                            {{$breadcrumb['name']}}
+                        </a>
+                    @else
+                        {{$breadcrumb['name']}}
+                    @endif
+                </li>
+            @endforeach
         </ol>
     </div>
 </header>

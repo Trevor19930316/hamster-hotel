@@ -205,6 +205,7 @@ class MenusTableSeeder extends Seeder
         $this->insertTitle('admin', 'Components');
 
         $this->beginDropdown('admin', 'Base', 'cil-puzzle');
+        $this->insertLink('admin', 'Breadcrumb', '/backend/components/base/breadcrumb');
         $this->insertLink('admin', 'Cards', '/backend/components/base/cards');
         $this->insertLink('admin', 'Tables', '/backend/components/base/tables');
         $this->endDropdown();

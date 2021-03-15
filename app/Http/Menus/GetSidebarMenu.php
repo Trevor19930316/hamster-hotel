@@ -1,8 +1,4 @@
 <?php
-/*
-*   07.11.2019
-*   MenusMenu.php
-*/
 
 namespace App\Http\Menus;
 

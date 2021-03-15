@@ -59,11 +59,18 @@
     @include('backend.template.shared.nav-builder')
 </div>
 <div class="c-wrapper">
+    {{-- header --}}
     @include('backend.template.shared.header')
     <div class="c-body">
         <main class="c-main">
-            @yield('content')
+            <div class="container-fluid">
+                <div class="fade-in">
+                    {{-- content --}}
+                    @yield('content')
+                </div>
+            </div>
         </main>
+        {{-- footer --}}
         @include('backend.template.shared.footer')
     </div>
 </div>

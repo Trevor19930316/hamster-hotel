@@ -2,112 +2,114 @@
 
 namespace Libraries\Helper;
 
-use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
+use Illuminate\Http\File;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
+use RuntimeException;
 
 Class HelpImageUploader
 {
     // storage disk
-    static $storageDisk = 'storage_public';
-    // storage image directory
-    static $storageImageDirectory = 'image';
+    static $storageDisk = 'storage_images';
 
     public function __construct(){}
 
     /**
      * set storage to upload image.
      * @param string $storageDisk
-     * @throws Exception
+     * @throws RuntimeException
      */
     public static function setStorageDisk(string $storageDisk)
     {
         if (!Storage::exists($storageDisk)) {
-            throw new Exception("storage disk : $storageDisk is not exists");
+            throw new RuntimeException("storage disk : $storageDisk is not exists");
         }
         static::$storageDisk = $storageDisk;
-    }
-
-    /**
-     * set directory to upload image, the directory will be created when it is not exist.
-     * @param string $directory
-     * @throws Exception
-     */
-    public static function setStorageImageFolder(string $directory)
-    {
-        if (!Storage::exists($directory)) {
-            Storage::makeDirectory($directory);
-        }
-        static::$storageImageDirectory = $directory;
     }
 
     /**
      * upload single file
      * @param $file
      * @param string $fileName
-     * @param string $path
+     * @param string $directory
      * @param string $storageDisk
      * @return bool
-     * @throws Exception
+     * @throws RuntimeException
      */
-    public static function uploadFile($file, $fileName = '', $path = '', $storageDisk = '')
+    public static function uploadFile(UploadedFile $file, string $fileName = '', string $directory = '', string $storageDisk = '')
     {
-        $fileName = empty($fileName) ? now()->toString() . rand(0, 999) : $fileName;
-        $path = empty($path) ? storage_path('image') : $path;
-        $storageDisk = empty($storageDisk) ? static::$storageDisk : $storageDisk;
+        $storageDisk = $storageDisk == '' ? static::$storageDisk : $storageDisk;
+        $storageDisk = Storage::disk($storageDisk);
 
-        // Upload File
-        if (!Storage::disk($storageDisk)->putFileAs($path, $file, $fileName)) {
+        $status = $fileName == '' ? $storageDisk->putFile($directory, $file)
+            : $storageDisk->putFileAs($directory, $file, $fileName . '.' . strtolower($file->extension()));
 
-            throw new Exception("upload file to storage disk is failed.");
-        }
+        if (!$status) {
+
+            throw new RuntimeException("upload file to storage disk is failed.");
+        };
 
         return true;
     }
 
     /**
      * upload multiple files
-     * @param Request $request
-     * @param array $fileNames
-     * @param string $path
+     * 自訂檔名需要在第一個參數的陣列 key 換成檔名，並於第二個參數帶上 true
+     * @param array $files ['fileName' => file]
+     * @param bool $assignFileName
+     * @param string $directory
      * @param string $storageDisk
+     * @return bool
      */
-    public static function uploadFiles(Request $request, $fileNames = [], $path = '', $storageDisk = '')
+    public static function uploadFiles(array $files, bool $assignFileName = false, string $directory = '', string $storageDisk = '')
     {
+        foreach ($files as $fileName => $file) {
 
+            if (!$file instanceof File && !$file instanceof UploadedFile) {
+                throw new RuntimeException("file is not a File or UploadedFile instance");
+            }
+
+            $fileName = $assignFileName ? $fileName : '';
+
+            self::uploadFile($file, $fileName, $directory, $storageDisk);
+        }
+
+        return true;
     }
 
     /**
      * @param $file
      * @param $tableName
      * @param $columnName
-     * @param $dataId
+     * @param $model
      * @return bool
-     * @throws Exception
      */
-    public static function uploadFileAtTable($file, $tableName, $columnName, $dataId)
+    public static function uploadFileAtTable($file, $tableName, $columnName, $model)
     {
         if (!Schema::hasTable($tableName)) {
 
-            throw new Exception("table : $tableName is not exists.");
+            throw new RuntimeException("table : $tableName is not exists.");
 
         } elseif (!Schema::hasColumn($tableName, $columnName)) {
 
-            throw new Exception("column : $columnName is not exists.");
+            throw new RuntimeException("column : $columnName is not exists.");
+
+        } elseif (!$model instanceof Model) {
+
+            throw new RuntimeException("$model is not a model instance.");
 
         }
 
-        $uploadPath = storage_path(static::$storageImageDirectory . '/' . $tableName);
-        $fileFullName = $dataId . '.' . strtolower($file->extension());
-
-        if (!static::uploadFile($file, $dataId, $uploadPath)) {
+        if (!self::uploadFile($file, $model->id, $tableName, 'storage_public')) {
             return false;
         }
 
-        Model::setTable($tableName)->where('id', '=', $dataId)->update([
-            $columnName => $uploadPath . '/' . $fileFullName
+        $fileFullName = $model->id . '.' . strtolower($file->extension());
+
+        $model->where('id', '=', $model->id)->update([
+            $columnName => $tableName . '/' . $fileFullName
         ]);
 
         return true;

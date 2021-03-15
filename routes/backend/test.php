@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Libraries\Helper\HelpImageUploader;
 
 Route::get('test', function () {
-
-    $HelpImageUploader = new HelpImageUploader();
-    $HelpImageUploader->setStorageDisk('public');
-
+    return view('backend.test');
 })->name('backend.test');
+
+Route::post('testPost', [\App\Http\Controllers\backend\TestController::class, 'testPost'])->name('backend.test.testPost');

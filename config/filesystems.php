@@ -82,6 +82,24 @@ return [
             // 'timeout' => 30,
         ],
 
+        'storage_public' => [
+            'driver' => 'local',
+            'root' => storage_path('public'),
+            'url' => env('APP_URL').'/storage/public',
+        ],
+
+        'storage_private' => [
+            'driver' => 'local',
+            'root' => storage_path('private'),
+            'url' => env('APP_URL').'/storage/private',
+        ],
+
+        'storage_images' => [
+            'driver' => 'local',
+            'root' => storage_path('images'),
+            'url' => env('APP_URL').'/storage/images',
+        ],
+
     ],
 
     /*

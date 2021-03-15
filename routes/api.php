@@ -22,10 +22,10 @@ Route::middleware('auth:api')->group(function () {
 //        return $request->user();
 //    });
 
-    // Hamster
-    //Route::apiResource('hamster', 'api\HamsterController');
-    Route::get('/hamster/{id}', function ($id){
-        return new HamsterResource(Hamster::findOrFail($id));
-    });
+});
 
+// Hamster
+//Route::apiResource('hamster', 'api\HamsterController');
+Route::get('/hamster/{id}', function ($id){
+    return new HamsterResource(Hamster::findOrFail($id));
 });

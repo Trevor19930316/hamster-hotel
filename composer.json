@@ -52,6 +52,7 @@
             "database/factories"
         ],
         "files": [
+            "libraries/functions/functions.php"
         ]
     },
     "autoload-dev": {

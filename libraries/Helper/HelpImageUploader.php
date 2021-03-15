@@ -80,13 +80,13 @@ Class HelpImageUploader
     }
 
     /**
-     * @param $file
-     * @param $tableName
-     * @param $columnName
-     * @param $model
+     * @param UploadedFile $file
+     * @param string $tableName
+     * @param string $columnName
+     * @param int $dataId
      * @return bool
      */
-    public static function uploadFileAtTable($file, $tableName, $columnName, $model)
+    public static function uploadFileAtTable(UploadedFile $file, string $tableName, string $columnName, int $dataId)
     {
         if (!Schema::hasTable($tableName)) {
 
@@ -95,20 +95,17 @@ Class HelpImageUploader
         } elseif (!Schema::hasColumn($tableName, $columnName)) {
 
             throw new RuntimeException("column : $columnName is not exists.");
-
-        } elseif (!$model instanceof Model) {
-
-            throw new RuntimeException("$model is not a model instance.");
-
         }
 
-        if (!self::uploadFile($file, $model->id, $tableName, 'storage_public')) {
+        if (!self::uploadFile($file, $dataId, $tableName, 'storage_public')) {
             return false;
         }
 
-        $fileFullName = $model->id . '.' . strtolower($file->extension());
+        $fileFullName = $dataId . '.' . strtolower($file->extension());
 
-        $model->where('id', '=', $model->id)->update([
+        $model = getModelByTableName($tableName);
+
+        $model::where('id', '=', $dataId)->update([
             $columnName => $tableName . '/' . $fileFullName
         ]);
 

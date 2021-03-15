@@ -31,6 +31,8 @@ Route::middleware(['auth:web'])->group(function () {
             // element
             require 'components/element.php';
 
+            // notifications
+            require 'components/notifications.php';
         });
 
         // template

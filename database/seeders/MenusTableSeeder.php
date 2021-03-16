@@ -212,7 +212,7 @@ class MenusTableSeeder extends Seeder
 
         $this->beginDropdown('admin', 'Notifications', 'cil-bell');
         $this->insertLink('admin', 'Alerts', '/backend/components/notifications/alerts');
-        $this->insertLink('admin', 'Badge', '/backend/components/notifications/badge');
+        $this->insertLink('admin', 'Badges', '/backend/components/notifications/badges');
         $this->insertLink('admin', 'Modals', '/backend/components/notifications/modals');
         $this->endDropdown();
 

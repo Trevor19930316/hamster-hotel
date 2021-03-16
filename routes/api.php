@@ -17,11 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', [ApiAuthController::class, 'login'])->name('api.api_auth.login');
-
-Route::middleware('auth:api_users')->group(function () {
-    Route::prefix('auth')->group(function () {
-        Route::get('/', [ApiAuthController::class, 'user'])->name('api.api_auth.user');
-        Route::post('logout', [ApiAuthController::class, 'logout'])->name('api.api_auth.logout');
-    });
+Route::prefix('auth')->group(function () {
+    Route::post('login', [ApiAuthController::class, 'login'])->name('api.api_auth.login');
+    Route::get('/', [ApiAuthController::class, 'user'])->middleware('auth:api_users')->name('api.api_auth.user');
+    Route::post('logout', [ApiAuthController::class, 'logout'])->middleware('auth:api_users')->name('api.api_auth.logout');
 });

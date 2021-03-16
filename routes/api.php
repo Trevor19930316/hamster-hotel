@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\ApiAuthController;
 use App\Http\Resources\HamsterResource;
 use App\Models\Hamster;
 use Illuminate\Http\Request;
@@ -16,16 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->group(function () {
+Route::post('login', [ApiAuthController::class, 'login'])->name('api.api_auth.login');
 
-//    Route::get('/user', function (Request $request) {
-//        return $request->user();
-//    });
-
-});
-
-// Hamster
-//Route::apiResource('hamster', 'api\HamsterController');
-Route::get('/hamster/{id}', function ($id){
-    return new HamsterResource(Hamster::findOrFail($id));
+Route::middleware('auth:api_users')->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::get('/', [ApiAuthController::class, 'user'])->name('api.api_auth.user');
+        Route::post('logout', [ApiAuthController::class, 'logout'])->name('api.api_auth.logout');
+    });
 });

@@ -21,7 +21,7 @@ class ApiAuthController extends Controller
     // login
     public function login()
     {
-        $credentials = request(['account', 'password']);
+        $credentials = request()->only(['account', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['status' => 1, 'message' => 'invalid credentials'], 401);

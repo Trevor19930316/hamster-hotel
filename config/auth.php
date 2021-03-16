@@ -17,6 +17,8 @@ return [
 //        'guard' => 'web',
 //        'passwords' => 'users',
 //    ],
+
+    // TODO 待確認，為何 default 一定要調整成 api 才會 work
     'defaults' => [
         'guard' => 'api_users',
         'passwords' => 'api_users',

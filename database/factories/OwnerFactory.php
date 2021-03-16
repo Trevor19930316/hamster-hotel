@@ -27,7 +27,7 @@ class OwnerFactory extends Factory
         return [
             'name' => $this->faker->name($sexArr[$sex]),
             'sex' => $sex,
-            'mobile' => $this->faker->phoneNumber,
+            'mobile' => '0975137790',
         ];
     }
 }

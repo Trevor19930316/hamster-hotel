@@ -31,6 +31,8 @@
     <link href="{{ asset('css/free.min.css') }}" rel="stylesheet"> <!-- icons -->
     {{--<link href="{{ asset('css/flag-icon.min.css') }}" rel="stylesheet"> <!-- icons -->--}}
 
+    <link href="{{ asset('css/coreui.min.css') }}" rel="stylesheet">
+
     {{-- Main styles for this application --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -42,6 +44,8 @@
     <script src="{{asset('plugin/jquery/3.3.1/jquery.min.js')}}"></script>
     {{-- jQuery easing --}}
     <script src="{{asset('plugin/jquery/easing/1.4.2/easing.min.js')}}"></script>
+
+    <script src="{{asset('plugin/bootstrap/4.3.1/js/bootstrap.js')}}"></script>
 
     {{-- Global site tag (gtag.js) - Google Analytics --}}
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>

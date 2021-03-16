@@ -49,4 +49,6 @@ class User extends Authenticatable
     protected $attributes = [
         'menu_roles' => 'user',
     ];
+
+    protected $guard_name = 'web';
 }

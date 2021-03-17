@@ -15,7 +15,7 @@ class MenusTableSeeder extends Seeder
     private $sequence = 1;
     private $joinData = array();
     private $adminRole = null;
-    private $userRole = null;
+    private $viewerRole = null;
     private $subFolder = '';
 
     public function join($roles, $menusId)
@@ -74,7 +74,7 @@ class MenusTableSeeder extends Seeder
         }
         $roles = explode(',', $roles);
         if (in_array('user', $roles)) {
-            $this->userRole->givePermissionTo($permission);
+            $this->viewerRole->givePermissionTo($permission);
         }
         if (in_array('admin', $roles)) {
             $this->adminRole->givePermissionTo($permission);
@@ -133,8 +133,8 @@ class MenusTableSeeder extends Seeder
     public function run()
     {
         /* Get roles */
-        $this->adminRole = Role::where('name', '=', 'admin')->first();
-        $this->userRole = Role::where('name', '=', 'user')->first();
+        $this->adminRole = Role::where('name', '=', 'Admin')->first();
+        $this->viewerRole = Role::where('name', '=', 'Viewer')->first();
 
         /* Create Sidebar menu */
         DB::table('menu_list')->insert([
@@ -142,101 +142,101 @@ class MenusTableSeeder extends Seeder
         ]);
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
 
-        $this->insertLink('guest,user,admin', 'Dashboard', '/backend/dashboard', 'cil-speedometer');
-        $this->beginDropdown('admin', 'Settings', 'cil-calculator');
-//        $this->insertLink('admin', 'Notes', '/notes');
-        $this->insertLink('admin', 'Users', '/users');
-//        $this->insertLink('admin', 'Edit menu', '/menu/menu');
-//        $this->insertLink('admin', 'Edit menu elements', '/menu/element');
-//        $this->insertLink('admin', 'Edit roles', '/roles');
-//        $this->insertLink('admin', 'Media', '/media');
-//        $this->insertLink('admin', 'BREAD', '/bread');
-//        $this->insertLink('admin', 'Email', '/mail');
+        $this->insertLink('Public,Viewer,Admin', 'Dashboard', '/backend/dashboard', 'cil-speedometer');
+        $this->beginDropdown('Admin', 'Settings', 'cil-calculator');
+//        $this->insertLink('Admin', 'Notes', '/notes');
+        $this->insertLink('Admin', 'Users', '/users');
+//        $this->insertLink('Admin', 'Edit menu', '/menu/menu');
+//        $this->insertLink('Admin', 'Edit menu elements', '/menu/element');
+//        $this->insertLink('Admin', 'Edit roles', '/roles');
+//        $this->insertLink('Admin', 'Media', '/media');
+//        $this->insertLink('Admin', 'BREAD', '/bread');
+//        $this->insertLink('Admin', 'Email', '/mail');
         $this->endDropdown();
 
-        $this->insertLink('guest', 'Login', '/backend/login', 'cil-account-logout');
-//        $this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
+        $this->insertLink('Public', 'Login', '/backend/login', 'cil-account-logout');
+//        $this->insertLink('Public', 'Register', '/register', 'cil-account-logout');
 
-//        $this->insertTitle('user,admin', 'Theme');
-//        $this->insertLink('user,admin', 'Colors', '/colors', 'cil-drop1');
-//        $this->insertLink('user,admin', 'Typography', '/typography', 'cil-pencil');
+//        $this->insertTitle('Viewer,Admin', 'Theme');
+//        $this->insertLink('Viewer,Admin', 'Colors', '/colors', 'cil-drop1');
+//        $this->insertLink('Viewer,Admin', 'Typography', '/typography', 'cil-pencil');
 
-//        $this->beginDropdown('user,admin', 'Base', 'cil-puzzle');
-//        $this->insertLink('user,admin', 'Breadcrumb', '/base/breadcrumb');
-//        $this->insertLink('user,admin', 'Cards', '/base/cards');
-//        $this->insertLink('user,admin', 'Carousel', '/base/carousel');
-//        $this->insertLink('user,admin', 'Collapse', '/base/collapse');
-//        $this->insertLink('user,admin', 'Forms', '/base/forms');
-//        $this->insertLink('user,admin', 'Jumbotron', '/base/jumbotron');
-//        $this->insertLink('user,admin', 'List group', '/base/list-group');
-//        $this->insertLink('user,admin', 'Navs', '/base/navs');
-//        $this->insertLink('user,admin', 'Pagination', '/base/pagination');
-//        $this->insertLink('user,admin', 'Popovers', '/base/popovers');
-//        $this->insertLink('user,admin', 'Progress', '/base/progress');
-//        $this->insertLink('user,admin', 'Scrollspy', '/base/scrollspy');
-//        $this->insertLink('user,admin', 'Switches', '/base/switches');
-//        $this->insertLink('user,admin', 'Tables', '/base/tables');
-//        $this->insertLink('user,admin', 'Tabs', '/base/tabs');
-//        $this->insertLink('user,admin', 'Tooltips', '/base/tooltips');
+//        $this->beginDropdown('Viewer,Admin', 'Base', 'cil-puzzle');
+//        $this->insertLink('Viewer,Admin', 'Breadcrumb', '/base/breadcrumb');
+//        $this->insertLink('Viewer,Admin', 'Cards', '/base/cards');
+//        $this->insertLink('Viewer,Admin', 'Carousel', '/base/carousel');
+//        $this->insertLink('Viewer,Admin', 'Collapse', '/base/collapse');
+//        $this->insertLink('Viewer,Admin', 'Forms', '/base/forms');
+//        $this->insertLink('Viewer,Admin', 'Jumbotron', '/base/jumbotron');
+//        $this->insertLink('Viewer,Admin', 'List group', '/base/list-group');
+//        $this->insertLink('Viewer,Admin', 'Navs', '/base/navs');
+//        $this->insertLink('Viewer,Admin', 'Pagination', '/base/pagination');
+//        $this->insertLink('Viewer,Admin', 'Popovers', '/base/popovers');
+//        $this->insertLink('Viewer,Admin', 'Progress', '/base/progress');
+//        $this->insertLink('Viewer,Admin', 'Scrollspy', '/base/scrollspy');
+//        $this->insertLink('Viewer,Admin', 'Switches', '/base/switches');
+//        $this->insertLink('Viewer,Admin', 'Tables', '/base/tables');
+//        $this->insertLink('Viewer,Admin', 'Tabs', '/base/tabs');
+//        $this->insertLink('Viewer,Admin', 'Tooltips', '/base/tooltips');
 //        $this->endDropdown();
 
-//        $this->beginDropdown('user,admin', 'Buttons', 'cil-cursor');
-//        $this->insertLink('user,admin', 'Buttons', '/buttons/buttons');
-//        $this->insertLink('user,admin', 'Buttons Group', '/buttons/button-group');
-//        $this->insertLink('user,admin', 'Dropdowns', '/buttons/dropdowns');
-//        $this->insertLink('user,admin', 'Brand Buttons', '/buttons/brand-buttons');
+//        $this->beginDropdown('Viewer,Admin', 'Buttons', 'cil-cursor');
+//        $this->insertLink('Viewer,Admin', 'Buttons', '/buttons/buttons');
+//        $this->insertLink('Viewer,Admin', 'Buttons Group', '/buttons/button-group');
+//        $this->insertLink('Viewer,Admin', 'Dropdowns', '/buttons/dropdowns');
+//        $this->insertLink('Viewer,Admin', 'Brand Buttons', '/buttons/brand-buttons');
 //        $this->endDropdown();
 
-//        $this->insertLink('user,admin', 'Charts', '/charts', 'cil-chart-pie');
-//        $this->beginDropdown('user,admin', 'Icons', 'cil-star');
-//        $this->insertLink('user,admin', 'CoreUI Icons', '/icon/coreui-icons');
-//        $this->insertLink('user,admin', 'Flags', '/icon/flags');
-//        $this->insertLink('user,admin', 'Brands', '/icon/brands');
+//        $this->insertLink('Viewer,Admin', 'Charts', '/charts', 'cil-chart-pie');
+//        $this->beginDropdown('Viewer,Admin', 'Icons', 'cil-star');
+//        $this->insertLink('Viewer,Admin', 'CoreUI Icons', '/icon/coreui-icons');
+//        $this->insertLink('Viewer,Admin', 'Flags', '/icon/flags');
+//        $this->insertLink('Viewer,Admin', 'Brands', '/icon/brands');
 //        $this->endDropdown();
 
-//        $this->beginDropdown('user,admin', 'Notifications', 'cil-bell');
-//        $this->insertLink('user,admin', 'Alerts', '/notifications/alerts');
-//        $this->insertLink('user,admin', 'Badge', '/notifications/badge');
-//        $this->insertLink('user,admin', 'Modals', '/notifications/modals');
+//        $this->beginDropdown('Viewer,Admin', 'Notifications', 'cil-bell');
+//        $this->insertLink('Viewer,Admin', 'Alerts', '/notifications/alerts');
+//        $this->insertLink('Viewer,Admin', 'Badge', '/notifications/badge');
+//        $this->insertLink('Viewer,Admin', 'Modals', '/notifications/modals');
 //        $this->endDropdown();
 
-//        $this->insertLink('user,admin', 'Widgets', '/widgets', 'cil-calculator');
+//        $this->insertLink('Viewer,Admin', 'Widgets', '/widgets', 'cil-calculator');
 
-        $this->insertTitle('admin', 'Components');
+        $this->insertTitle('Admin', 'Components');
 
-        $this->beginDropdown('admin', 'Base', 'cil-puzzle');
-        $this->insertLink('admin', 'Breadcrumb', '/backend/components/base/breadcrumb');
-        $this->insertLink('admin', 'Cards', '/backend/components/base/cards');
-        $this->insertLink('admin', 'Tables', '/backend/components/base/tables');
+        $this->beginDropdown('Admin', 'Base', 'cil-puzzle');
+        $this->insertLink('Admin', 'Breadcrumb', '/backend/components/base/breadcrumb');
+        $this->insertLink('Admin', 'Cards', '/backend/components/base/cards');
+        $this->insertLink('Admin', 'Tables', '/backend/components/base/tables');
         $this->endDropdown();
 
-        $this->beginDropdown('admin', 'Notifications', 'cil-bell');
-        $this->insertLink('admin', 'Alerts', '/backend/components/notifications/alerts');
-        $this->insertLink('admin', 'Badges', '/backend/components/notifications/badges');
-        $this->insertLink('admin', 'Modals', '/backend/components/notifications/modals');
+        $this->beginDropdown('Admin', 'Notifications', 'cil-bell');
+        $this->insertLink('Admin', 'Alerts', '/backend/components/notifications/alerts');
+        $this->insertLink('Admin', 'Badges', '/backend/components/notifications/badges');
+        $this->insertLink('Admin', 'Modals', '/backend/components/notifications/modals');
         $this->endDropdown();
 
-        $this->beginDropdown('admin', 'Element', 'cil-diamond');
-        $this->insertLink('admin', 'Input', '/backend/components/element/input');
-        $this->insertLink('admin', 'Checkbox', '/backend/components/element/checkbox');
-        $this->insertLink('admin', 'Radio', '/backend/components/element/radio');
-        $this->insertLink('admin', 'Select', '/backend/components/element/select');
-        $this->insertLink('admin', 'Image', '/backend/components/element/image');
-        $this->insertLink('admin', 'File', '/backend/components/element/file');
-        $this->insertLink('admin', 'Pagination', '/backend/components/element/pagination');
+        $this->beginDropdown('Admin', 'Element', 'cil-diamond');
+        $this->insertLink('Admin', 'Input', '/backend/components/element/input');
+        $this->insertLink('Admin', 'Checkbox', '/backend/components/element/checkbox');
+        $this->insertLink('Admin', 'Radio', '/backend/components/element/radio');
+        $this->insertLink('Admin', 'Select', '/backend/components/element/select');
+        $this->insertLink('Admin', 'Image', '/backend/components/element/image');
+        $this->insertLink('Admin', 'File', '/backend/components/element/file');
+        $this->insertLink('Admin', 'Pagination', '/backend/components/element/pagination');
         $this->endDropdown();
 
-        $this->insertTitle('admin', 'Extras');
+        $this->insertTitle('Admin', 'Extras');
 
-        $this->beginDropdown('admin', 'Pages', 'cil-star');
-        $this->insertLink('admin', 'Login', '/backend/login');
-//        $this->insertLink('user,admin', 'Register', '/register');
-//        $this->insertLink('user,admin', 'Error 404', '/404');
-//        $this->insertLink('user,admin', 'Error 500', '/500');
+        $this->beginDropdown('Admin', 'Pages', 'cil-star');
+        $this->insertLink('Admin', 'Login', '/backend/login');
+//        $this->insertLink('Viewer,Admin', 'Register', '/register');
+//        $this->insertLink('Viewer,Admin', 'Error 404', '/404');
+//        $this->insertLink('Viewer,Admin', 'Error 500', '/500');
         $this->endDropdown();
 
-//        $this->insertLink('admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');
-        $this->insertLink('admin', 'Try CoreUI PRO', 'https://coreui.io/pro/', 'cil-layers');
+//        $this->insertLink('Admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');
+        $this->insertLink('Admin', 'Try CoreUI PRO', 'https://coreui.io/pro/', 'cil-layers');
 
         /* Create top menu */
         DB::table('menu_list')->insert([
@@ -244,18 +244,18 @@ class MenusTableSeeder extends Seeder
         ]);
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
 
-        $this->beginDropdown('guest,user,admin', 'Pages');
-        $id = $this->insertLink('guest,user,admin', 'Dashboard', '/backend/dashboard');
-//        $id = $this->insertLink('user,admin', 'Notes', '/notes');
-        $id = $this->insertLink('admin', 'Users', '/backend/users');
+        $this->beginDropdown('Public,Viewer,Admin', 'Pages');
+        $id = $this->insertLink('Public,Viewer,Admin', 'Dashboard', '/backend/dashboard');
+//        $id = $this->insertLink('Viewer,Admin', 'Notes', '/notes');
+        $id = $this->insertLink('Admin', 'Users', '/backend/users');
         $this->endDropdown();
 
-//        $id = $this->beginDropdown('admin', 'Settings');
-//        $id = $this->insertLink('admin', 'Edit menu', '/menu/menu');
-//        $id = $this->insertLink('admin', 'Edit menu elements', '/menu/element');
-//        $id = $this->insertLink('admin', 'Edit roles', '/roles');
-//        $id = $this->insertLink('admin', 'Media', '/media');
-//        $id = $this->insertLink('admin', 'BREAD', '/bread');
+//        $id = $this->beginDropdown('Admin', 'Settings');
+//        $id = $this->insertLink('Admin', 'Edit menu', '/menu/menu');
+//        $id = $this->insertLink('Admin', 'Edit menu elements', '/menu/element');
+//        $id = $this->insertLink('Admin', 'Edit roles', '/roles');
+//        $id = $this->insertLink('Admin', 'Media', '/media');
+//        $id = $this->insertLink('Admin', 'BREAD', '/bread');
 //        $this->endDropdown();
 
         $this->joinAllByTransaction(); ///   <===== Must by use on end of this seeder

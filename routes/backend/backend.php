@@ -35,11 +35,6 @@ Route::middleware(['auth:web'])->group(function () {
             require 'components/notifications.php';
         });
 
-        // template
-        Route::get('/template/homepage', function () {
-            return view('template.homepage');
-        });
-
     });
 
 });

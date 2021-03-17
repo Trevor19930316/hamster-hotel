@@ -21,19 +21,19 @@ class UserSeeder extends Seeder
         DB::table('users')->truncate();
 
         /* Create roles */
-        $adminRole = Role::create(['name' => 'admin', 'guard_name' => 'web']);
+        $AdminRole = Role::create(['name' => 'Admin', 'guard_name' => 'web']);
         RoleHierarchy::create([
-            'role_id' => $adminRole->id,
+            'role_id' => $AdminRole->id,
             'hierarchy' => 1,
         ]);
-        $userRole = Role::create(['name' => 'user', 'guard_name' => 'web']);
+        $ViewerRole = Role::create(['name' => 'Viewer', 'guard_name' => 'web']);
         RoleHierarchy::create([
-            'role_id' => $userRole->id,
+            'role_id' => $ViewerRole->id,
             'hierarchy' => 2,
         ]);
-        $guestRole = Role::create(['name' => 'guest', 'guard_name' => 'web']);
+        $PublicRole = Role::create(['name' => 'Public', 'guard_name' => 'web']);
         RoleHierarchy::create([
-            'role_id' => $guestRole->id,
+            'role_id' => $PublicRole->id,
             'hierarchy' => 3,
         ]);
 
@@ -43,24 +43,24 @@ class UserSeeder extends Seeder
             'email' => 'trevor19930316@gmail.com',
             'password' => Hash::make('111111'),
 //            'password' => bcrypt('111111'),
-            'menu_roles' => 'user,admin'
+            'menu_roles' => 'Admin,Viewer'
         ]);
-        $user->assignRole('admin');
-        $user->assignRole('user');
+        $user->assignRole('Admin');
+        $user->assignRole('Viewer');
         $user = User::create([
             'name' => 'Tracy',
             'email' => 'lai831009@gmail.com',
             'password' => Hash::make('123456'),
-            'menu_roles' => 'user,admin'
+            'menu_roles' => 'Admin,Viewer'
         ]);
-        $user->assignRole('admin');
-        $user->assignRole('user');
+        $user->assignRole('Admin');
+        $user->assignRole('Viewer');
         $user = User::create([
             'name' => 'Testing',
             'email' => 'polo22662@gmail.com',
             'password' => Hash::make('222222'),
-            'menu_roles' => 'user'
+            'menu_roles' => 'Viewer'
         ]);
-        $user->assignRole('user');
+        $user->assignRole('Viewer');
     }
 }

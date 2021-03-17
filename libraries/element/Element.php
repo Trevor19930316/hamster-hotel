@@ -20,9 +20,9 @@ abstract class Element implements ViewRender
         $this->id = null;
         $this->class = 'form-control';
         $this->value = null;
-        $this->disable = null;
-        $this->required = null;
-        $this->readonly = null;
+        $this->disable = false;
+        $this->required = false;
+        $this->readonly = false;
         $this->onclick = null;
         $this->onchange = null;
     }

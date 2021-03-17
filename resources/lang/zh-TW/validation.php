@@ -1,5 +1,5 @@
 <?php
-use Libraries\Helper\HelperValidator;
+use Libraries\helper\HelperValidator;
 $attributes = HelperValidator::cacheValidationAttributes();
 
 return [

@@ -9,9 +9,9 @@ use Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Libraries\Helper\HelperSession;
-use Libraries\Helper\HelperValidator;
-use Libraries\Helper\HelpImageUploader;
+use Libraries\helper\HelperSession;
+use Libraries\helper\HelperValidator;
+use Libraries\helper\HelpImageUploader;
 
 class TestController extends Controller
 {

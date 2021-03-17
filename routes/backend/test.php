@@ -4,7 +4,7 @@
 use App\Models\Hamster;
 use App\Models\Owner;
 use Illuminate\Support\Facades\DB;
-use Libraries\Helper\HelpImageUploader;
+use Libraries\helper\HelpImageUploader;
 
 Route::get('test', function () {
     return view('backend.test');

@@ -1,5 +1,5 @@
 <?php
-use Libraries\Helper\HelpImageUploader;
+use Libraries\helper\HelpImageUploader;
 
 $HelpImageUploader = new HelpImageUploader();
 $HelpImageUploader->setStorageDisk('public');

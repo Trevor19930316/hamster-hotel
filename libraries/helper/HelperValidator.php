@@ -1,6 +1,6 @@
 <?php
 
-namespace Libraries\Helper;
+namespace Libraries\helper;
 
 use Exception;
 use Illuminate\Support\Facades\Cache;

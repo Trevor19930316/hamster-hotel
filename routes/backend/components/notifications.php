@@ -6,8 +6,8 @@ Route::prefix('notifications')->group(function () {
         return view('backend.components.notifications.alerts');
     });
 
-    Route::get('/badge', function () {
-        return view('backend.components.notifications.badge');
+    Route::get('/badges', function () {
+        return view('backend.components.notifications.badges');
     });
 
     Route::get('/modals', function () {

@@ -49,4 +49,5 @@ class User extends Authenticatable
     protected $attributes = [
         'menu_roles' => 'user',
     ];
+
 }

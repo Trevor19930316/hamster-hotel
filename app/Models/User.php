@@ -50,5 +50,4 @@ class User extends Authenticatable
         'menu_roles' => 'user',
     ];
 
-    protected $guard_name = 'web';
 }

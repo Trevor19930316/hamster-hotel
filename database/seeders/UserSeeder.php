@@ -21,17 +21,17 @@ class UserSeeder extends Seeder
         DB::table('users')->truncate();
 
         /* Create roles */
-        $adminRole = Role::create(['name' => 'admin']);
+        $adminRole = Role::create(['name' => 'admin', 'guard_name' => 'web']);
         RoleHierarchy::create([
             'role_id' => $adminRole->id,
             'hierarchy' => 1,
         ]);
-        $userRole = Role::create(['name' => 'user']);
+        $userRole = Role::create(['name' => 'user', 'guard_name' => 'web']);
         RoleHierarchy::create([
             'role_id' => $userRole->id,
             'hierarchy' => 2,
         ]);
-        $guestRole = Role::create(['name' => 'guest']);
+        $guestRole = Role::create(['name' => 'guest', 'guard_name' => 'web']);
         RoleHierarchy::create([
             'role_id' => $guestRole->id,
             'hierarchy' => 3,

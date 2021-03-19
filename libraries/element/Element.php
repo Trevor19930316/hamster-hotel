@@ -18,7 +18,7 @@ abstract class Element implements ViewRender
     {
         $this->name = null;
         $this->id = null;
-        $this->class = 'form-control';
+        $this->class = ['form-control'];
         $this->value = null;
         $this->disable = false;
         $this->required = false;
@@ -55,7 +55,7 @@ abstract class Element implements ViewRender
      */
     public function setClass($class): Element
     {
-        $this->class .= " $class";
+        $this->class[] += $class;
 
         return $this;
     }
@@ -124,5 +124,19 @@ abstract class Element implements ViewRender
         $this->readonly = (boolean)$readonly;
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getClassVar()
+    {
+        $data = get_class_vars(get_class($this));
+        $newData = [];
+        foreach ($data as $varKey => $varVal) {
+            $newData[$varKey] = $this->$varKey;
+        }
+
+        return $newData;
     }
 }

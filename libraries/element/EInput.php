@@ -19,12 +19,20 @@ class EInput extends Element
 
     public function view()
     {
-        // TODO: Implement view() method.
+        if (is_null($this->type)) {
+            throw new RuntimeException("input type is null");
+        }
+
+        $inputData = $this->getClassVar();
+
+        return view('backend.template.components.element.input', $inputData)->render();
     }
 
     public function show()
     {
-        // TODO: Implement show() method.
+        echo $this->view();
+
+        dump($this->getClassVar());
     }
 
     public function __construct()
@@ -48,7 +56,7 @@ class EInput extends Element
      */
     public function setType(string $type): EInput
     {
-        if (!in_array($this, ['number', 'submit', 'text'])) {
+        if (!in_array($type, ['number', 'submit', 'text'])) {
             throw new RuntimeException("EInput setType($type) is invalid.");
         }
 

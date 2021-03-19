@@ -9,6 +9,7 @@ use Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Libraries\element\EInput;
 use Libraries\helper\HelperSession;
 use Libraries\helper\HelperValidator;
 use Libraries\helper\HelpImageUploader;
@@ -17,11 +18,6 @@ class TestController extends Controller
 {
     public function testPost(Request $request)
     {
-        dump($request->file('fileName'));
-//        dump($request->file('fileNames'));
-
-        HelpImageUploader::uploadFileAtTable($request->file('fileName'), 'users', 'name', User::find(1));
-
-        dd($request);
+        $EInput = new EInput();
     }
 }

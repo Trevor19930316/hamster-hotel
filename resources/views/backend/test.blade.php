@@ -1,8 +1,11 @@
 <?php
+
+use Libraries\element\EInput;
 use Libraries\helper\HelpImageUploader;
 
 $HelpImageUploader = new HelpImageUploader();
 $HelpImageUploader->setStorageDisk('public');
+$EInput = new EInput();
 ?>
 <!-- Scripts -->
 <script src="{{asset('js/app.js')}}" defer></script>
@@ -22,3 +25,7 @@ $HelpImageUploader->setStorageDisk('public');
 
     <button type="submit" class="w-25 btn btn-primary btn-block">送出</button>
 </form>
+
+<?php
+$EInput->setType('text')->setValue(123)->show();
+?>

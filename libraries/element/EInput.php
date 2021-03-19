@@ -7,15 +7,17 @@ use RuntimeException;
 
 class EInput extends Element
 {
-    protected $type;
-    protected $max;
-    protected $maxlength;
-    protected $min;
-    protected $minlength;
-    protected $placeholder;
-    protected $onkeyup;
-    protected $onkeypress;
-    protected $textNumber;
+    protected $type = 'text';
+    protected $max = null;
+    protected $maxlength = null;
+    protected $min = null;
+    protected $minlength = null;
+    protected $placeholder = null;
+    protected $onclick = null;
+    protected $onkeyup = null;
+    protected $onkeypress = null;
+    protected $textNumber = false;
+    protected $autocomplete = 'on';
 
     public function view()
     {
@@ -31,23 +33,13 @@ class EInput extends Element
     public function show()
     {
         //dump($this->getClassVar());
-
         echo $this->view();
+        $this->reset();
     }
 
     public function __construct()
     {
         parent::__construct();
-
-        $this->type = 'text';
-        $this->max = null;
-        $this->maxlength = null;
-        $this->min = null;
-        $this->minlength = null;
-        $this->placeholder = null;
-        $this->onkeyup = null;
-        $this->onkeypress = null;
-        $this->textNumber = false;
     }
 
     /**
@@ -109,6 +101,14 @@ class EInput extends Element
     }
 
     /**
+     * @param null $onclick
+     */
+    public function setOnclick($onclick)
+    {
+        $this->onclick = $onclick;
+    }
+
+    /**
      * @param null $onkeyup
      *
      */
@@ -124,6 +124,14 @@ class EInput extends Element
     public function setOnkeypress($onkeypress)
     {
         $this->onkeypress = $onkeypress;
+    }
+
+    /**
+     * @param string $autocomplete
+     */
+    public function setAutocomplete($autocomplete = 'on')
+    {
+        $this->autocomplete = $autocomplete;
     }
 
     /**

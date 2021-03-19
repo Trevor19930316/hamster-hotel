@@ -14,21 +14,40 @@
                     @component('backend.template.components.base.row.form-row')
                         @slot('label','Name')
                         @slot('content')
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name">
+                            <?php
+                            $EInput = new \Libraries\element\EInput();
+                            $EInput->setType('text');
+                            $EInput->setName('text');
+                            $EInput->setId('text');
+                            $EInput->setPlaceholder('Name');
+                            $EInput->show();
+                            ?>
                         @endslot
                     @endcomponent
                     @component('backend.template.components.base.row.form-row')
                         @slot('label','Number')
                         @slot('content')
-                            <input class="form-control" id="number" type="number">
+                            <?php
+                            $EInput->setType('number');
+                            $EInput->setName('number');
+                            $EInput->setId('number');
+                            $EInput->setPlaceholder('Number');
+                            $EInput->show();
+                            ?>
                         @endslot
                     @endcomponent
                     @component('backend.template.components.base.row.form-row')
                         @slot('label','Email')
                         @slot('content')
-                            <input class="form-control" id="email" type="email" name="email"
-                                   placeholder="Enter Email"
-                                   autocomplete="email">
+                            <?php
+                            $EInput->setType('email');
+                            $EInput->setName('email');
+                            $EInput->setId('email');
+                            $EInput->setValue('test@gmail.com');
+                            $EInput->setPlaceholder('Enter Email');
+                            $EInput->setAutocomplete('email');
+                            $EInput->show();
+                            ?>
                         @endslot
                         @slot('helpBlock')
                             Please enter your email
@@ -37,8 +56,14 @@
                     @component('backend.template.components.base.row.form-row')
                         @slot('label','Password')
                         @slot('content')
-                            <input class="form-control" id="password" type="password" name="password"
-                                   placeholder="Password" autocomplete="new-password">
+                            <?php
+                            $EInput->setType('password');
+                            $EInput->setName('password');
+                            $EInput->setId('password');
+                            $EInput->setPlaceholder('Password');
+                            $EInput->setAutocomplete('new-password');
+                            $EInput->show();
+                            ?>
                         @endslot
                         @slot('helpBlock')
                             Please enter a complex password

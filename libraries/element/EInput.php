@@ -30,9 +30,9 @@ class EInput extends Element
 
     public function show()
     {
-        echo $this->view();
+        //dump($this->getClassVar());
 
-        dump($this->getClassVar());
+        echo $this->view();
     }
 
     public function __construct()
@@ -52,104 +52,86 @@ class EInput extends Element
 
     /**
      * @param string $type
-     * @return EInput
+     *
      */
-    public function setType(string $type): EInput
+    public function setType(string $type)
     {
-        if (!in_array($type, ['number', 'submit', 'text'])) {
+        if (!in_array($type, ['number', 'submit', 'text', 'email', 'password'])) {
             throw new RuntimeException("EInput setType($type) is invalid.");
         }
 
         $this->type = $type;
-
-        return $this;
     }
 
     /**
      * @param null $max
-     * @return EInput
+     *
      */
-    public function setMax($max): EInput
+    public function setMax($max)
     {
         $this->max = $max;
-
-        return $this;
     }
 
     /**
      * @param null $maxlength
-     * @return EInput
+     *
      */
-    public function setMaxlength($maxlength): EInput
+    public function setMaxlength($maxlength)
     {
         $this->maxlength = $maxlength;
-
-        return $this;
     }
 
     /**
      * @param null $min
-     * @return EInput
+     *
      */
-    public function setMin($min): EInput
+    public function setMin($min)
     {
         $this->min = $min;
-
-        return $this;
     }
 
     /**
      * @param null $minlength
-     * @return EInput
+     *
      */
-    public function setMinlength($minlength): EInput
+    public function setMinlength($minlength)
     {
         $this->minlength = $minlength;
-
-        return $this;
     }
 
     /**
      * @param null $placeholder
-     * @return EInput
+     *
      */
-    public function setPlaceholder($placeholder): EInput
+    public function setPlaceholder($placeholder)
     {
         $this->placeholder = $placeholder;
-
-        return $this;
     }
 
     /**
      * @param null $onkeyup
-     * @return EInput
+     *
      */
-    public function setOnkeyup($onkeyup): EInput
+    public function setOnkeyup($onkeyup)
     {
         $this->onkeyup = $onkeyup;
-
-        return $this;
     }
 
     /**
      * @param null $onkeypress
-     * @return EInput
+     *
      */
-    public function setOnkeypress($onkeypress): EInput
+    public function setOnkeypress($onkeypress)
     {
         $this->onkeypress = $onkeypress;
-
-        return $this;
     }
 
     /**
      * @param bool $textNumber
-     * @return EInput
+     *
      */
-    public function isTextNumber(bool $textNumber = true): EInput
+    public function isTextNumber(bool $textNumber = true)
     {
         $this->textNumber = true;
-
-        return $this;
     }
 }

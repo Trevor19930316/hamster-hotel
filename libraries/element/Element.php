@@ -13,6 +13,7 @@ abstract class Element implements ViewRender
     protected $readonly;
     protected $onclick;
     protected $onchange;
+    protected $autocomplete;
 
     public function __construct()
     {
@@ -20,110 +21,97 @@ abstract class Element implements ViewRender
         $this->id = null;
         $this->class = ['form-control'];
         $this->value = null;
+        $this->onclick = null;
+        $this->onchange = null;
+        $this->autocomplete = 'on';
         $this->disable = false;
         $this->required = false;
         $this->readonly = false;
-        $this->onclick = null;
-        $this->onchange = null;
     }
 
     /**
      * @param null $name
-     * @return Element
+
      */
-    public function setName($name): Element
+    public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
      * @param null $id
-     * @return Element
+
      */
-    public function setId($id): Element
+    public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
     }
 
     /**
      * @param null $class
-     * @return Element
+
      */
-    public function setClass($class): Element
+    public function setClass($class)
     {
         $this->class[] += $class;
-
-        return $this;
     }
 
     /**
      * @param null $value
-     * @return Element
+
      */
-    public function setValue($value): Element
+    public function setValue($value)
     {
         $this->value = $value;
-
-        return $this;
     }
 
     /**
      * @param null $onclick
-     * @return Element
      */
-    public function setOnclick($onclick): Element
+    public function setOnclick($onclick)
     {
         $this->onclick = $onclick;
-
-        return $this;
     }
 
     /**
      * @param null $onchange
-     * @return Element
      */
-    public function setOnchange($onchange): Element
+    public function setOnchange($onchange)
     {
         $this->onchange = $onchange;
+    }
 
-        return $this;
+    /**
+     * @param null $autocomplete
+     */
+    public function setAutocomplete($autocomplete)
+    {
+        $this->autocomplete = $autocomplete;
     }
 
     /**
      * @param bool $disable
-     * @return Element
      */
-    public function isDisable($disable = true): Element
+    public function isDisable($disable = true)
     {
         $this->disable = (boolean)$disable;
-
-        return $this;
     }
 
     /**
      * @param bool $required
-     * @return Element
+
      */
-    public function isRequired($required = true): Element
+    public function isRequired($required = true)
     {
         $this->required = (boolean)$required;
-
-        return $this;
     }
 
     /**
      * @param bool $readonly
-     * @return Element
      */
-    public function isReadonly($readonly = true): Element
+    public function isReadonly($readonly = true)
     {
         $this->readonly = (boolean)$readonly;
-
-        return $this;
     }
 
     /**

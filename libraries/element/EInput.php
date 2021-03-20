@@ -26,9 +26,9 @@ class EInput extends Element
             throw new RuntimeException("input type is null");
         }
 
-        $inputData = $this->getClassVar();
+        $data = $this->getClassVar();
 
-        return view('backend.template.components.element.input', $inputData)->render();
+        return view('backend.template.components.element.input', $data)->render();
     }
 
     public function show()
@@ -38,18 +38,13 @@ class EInput extends Element
         $this->reset();
     }
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * @param string $type
      *
      */
     public function setType(string $type)
     {
-        if (!in_array($type, ['number', 'submit', 'text', 'email', 'password'])) {
+        if (!in_array($type, ['number', 'submit', 'text', 'email', 'password', 'radio'])) {
             throw new RuntimeException("EInput setType($type) is invalid.");
         }
 

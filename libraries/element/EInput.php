@@ -8,6 +8,7 @@ use RuntimeException;
 class EInput extends Element
 {
     protected $type = 'text';
+    protected $value = null;
     protected $max = null;
     protected $maxlength = null;
     protected $min = null;
@@ -53,6 +54,15 @@ class EInput extends Element
         }
 
         $this->type = $type;
+    }
+
+    /**
+     * @param null $value
+
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
     }
 
     /**

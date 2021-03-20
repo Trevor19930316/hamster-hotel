@@ -7,7 +7,6 @@ abstract class Element implements ViewRender
     protected $name = null;
     protected $id = null;
     protected $class = ['form-control'];
-    protected $value = null;
     protected $onchange = null;
     protected $disable = false;
     protected $required = false;
@@ -51,15 +50,6 @@ abstract class Element implements ViewRender
     public function setClass($class)
     {
         $this->class[] += $class;
-    }
-
-    /**
-     * @param null $value
-
-     */
-    public function setValue($value)
-    {
-        $this->value = $value;
     }
 
     /**

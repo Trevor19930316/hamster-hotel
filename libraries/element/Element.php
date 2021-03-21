@@ -49,7 +49,8 @@ abstract class Element implements ViewRender
      */
     public function setClass($class)
     {
-        $this->class[] += $class;
+        //$this->class[] += $class;
+        array_push($this->class, $class);
     }
 
     /**

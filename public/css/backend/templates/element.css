@@ -1,0 +1,14 @@
+.form-check .form-check-sign {
+    left: 0;
+    top: 0;
+    transition-duration: 0.2s;
+    vertical-align: middle;
+    position: relative;
+    float: left;
+    display: inline-block;
+    height: inherit;
+}
+
+.form-check .form-check-text {
+    padding-left: .25rem;
+}

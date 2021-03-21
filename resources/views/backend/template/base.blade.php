@@ -35,6 +35,8 @@
 
     {{-- Main styles for this application --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {{-- Element styles --}}
+    <link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">
 
     @yield('css')
 

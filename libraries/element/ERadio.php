@@ -62,6 +62,7 @@ class ERadio extends Element
     public function isInline(bool $inline = true): void
     {
         $this->inline = $inline;
+        $this->setClass('inline');
     }
 
 }

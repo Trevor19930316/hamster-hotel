@@ -1,7 +1,7 @@
 <?php
 $name = $name ?? null;
 $id = $id ?? null;
-$class = $class ?? ['form-control', 'form-check-input'];
+$class = $class ?? ['form-check-input'];
 $radioData = $radioData ?? [];
 $onchange = $onchange ?? null;
 $disable = $disable ?? false;
@@ -18,6 +18,7 @@ $inline = $inline ?? false;
                     class="{!! join(' ', $class) !!}"
                     {!! !is_null($name) ? 'name="'.$name.'"' : null !!}
                     {!! !is_null($id) ? 'id="'.$id.'"' : null !!}
+                    {!! !is_null($value) ? 'value="'.$value.'"' : null !!}
                     {!! !is_null($onchange) ? 'onchange="'.$onchange.'"' : null !!}
                     {!! $disable ? 'disable' : null !!}
                     {!! $required ? 'required' : null !!}

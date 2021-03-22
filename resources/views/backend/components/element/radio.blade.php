@@ -38,6 +38,7 @@
                                     '2020' => '2020',
                                     '2021' => '2021',
                                 ]);
+                                $ERadio->setCheckedValue('2020');
                                 $ERadio->isInline();
                                 $ERadio->show();
                                 ?>

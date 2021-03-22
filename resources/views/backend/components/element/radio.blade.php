@@ -29,17 +29,19 @@
                     @component('backend.template.components.base.row.form-row')
                         @slot('label','radio inline')
                         @slot('content')
-                            <?php
-                            $ERadio = new \Libraries\element\ERadio();
-                            $ERadio->setName('radio');
-                            $ERadio->setRadioData([
-                                '2019' => '2019',
-                                '2020' => '2020',
-                                '2021' => '2021',
-                            ]);
-                            $ERadio->isInline();
-                            $ERadio->show();
-                            ?>
+                            <div>
+                                <?php
+                                $ERadio = new \Libraries\element\ERadio();
+                                $ERadio->setName('radio_inline');
+                                $ERadio->setRadioData([
+                                    '2019' => '2019',
+                                    '2020' => '2020',
+                                    '2021' => '2021',
+                                ]);
+                                $ERadio->isInline();
+                                $ERadio->show();
+                                ?>
+                            </div>
                         @endslot
                     @endcomponent
                 @endslot

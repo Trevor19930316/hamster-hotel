@@ -3,6 +3,7 @@ $name = $name ?? null;
 $id = $id ?? null;
 $class = $class ?? ['form-check-input'];
 $radioData = $radioData ?? [];
+$checkedValue = $checkedValue ?? null;
 $onchange = $onchange ?? null;
 $disable = $disable ?? false;
 $required = $required ?? false;
@@ -23,9 +24,13 @@ $inline = $inline ?? false;
                     {!! $disable ? 'disable' : null !!}
                     {!! $required ? 'required' : null !!}
                     {!! $readonly ? 'readonly' : null !!}
+                    @if(!is_null($checkedValue))
+                        @if($checkedValue==$value)
+                        {{'checked'}}
+                        @endif
+                    @endif
                 >
-                <span class="formCheckSign"><span class="check"></span></span>
-                <span class="formCheckText"><?=$text;?></span>
+                <span class="form-check-text"><?=$text;?></span>
             </label>
         </div>
     </div>

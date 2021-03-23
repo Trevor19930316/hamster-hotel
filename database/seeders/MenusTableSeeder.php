@@ -221,6 +221,7 @@ class MenusTableSeeder extends Seeder
         $this->insertLink('Admin', 'Checkbox', '/backend/components/element/checkbox');
         $this->insertLink('Admin', 'Radio', '/backend/components/element/radio');
         $this->insertLink('Admin', 'Select', '/backend/components/element/select');
+        $this->insertLink('Admin', 'Button', '/backend/components/element/button');
         $this->insertLink('Admin', 'Textarea', '/backend/components/element/textarea');
         $this->insertLink('Admin', 'Image', '/backend/components/element/image');
         $this->insertLink('Admin', 'File', '/backend/components/element/file');

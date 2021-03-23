@@ -6,7 +6,7 @@ $type = $type ?? 'button';
 $icon = $icon ?? null;
 $iconPosition = $iconPosition ?? 'left';
 $onclick = $onclick ?? null;
-$disable = $disable ?? false;
+$disabled = $disabled ?? false;
 $textResponsive = $textResponsive ?? true;
 ?>
 <button
@@ -15,7 +15,7 @@ $textResponsive = $textResponsive ?? true;
     {!! !is_null($id) ? 'id="'.$id.'"' : null !!}
     {!! !is_null($type) ? 'type="'.$type.'"' : null !!}
     {!! !is_null($onclick) ? 'onclick="'.$onclick.'"' : null !!}
-    {!! $disable ? 'disable' : null !!}
+    {!! $disabled ? 'disabled' : null !!}
 >
     @if(!is_null($icon))
         @if($iconPosition=='left')

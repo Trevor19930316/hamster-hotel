@@ -23,6 +23,24 @@ class EIcon implements ViewRender
     }
 
     /**
+     * @inheritDoc
+     */
+    public function view()
+    {
+        $data = $this->getClassVar();
+        return view('backend.template.components.element.icon', $data)->render();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function show()
+    {
+        echo $this->view();
+        $this->reset();
+    }
+
+    /**
      * reset the object vars
      */
     protected function reset()
@@ -100,20 +118,10 @@ class EIcon implements ViewRender
     }
 
     /**
-     * @inheritDoc
+     *
      */
-    public function view()
+    public function getIconText()
     {
-        $data = $this->getClassVar();
-        return view('backend.template.components.element.icon', $data)->render();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function show()
-    {
-        echo $this->view();
-        $this->reset();
+       return $this->text;
     }
 }

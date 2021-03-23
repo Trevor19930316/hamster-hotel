@@ -12,7 +12,6 @@ class EButton extends Element
     protected $text = null;
     protected $icon = null;
     protected $iconPosition = null;
-    protected $iconText = null;
     protected $onclick = null;
     protected $textResponsive = true;
 

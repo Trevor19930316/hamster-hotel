@@ -4,10 +4,13 @@ namespace Libraries\element;
 
 abstract class Element implements ViewRender
 {
-    protected $class = [];
-    protected $text = null;
-    protected $dataAttributes = [];
+    protected $name = null;
+    protected $id = null;
+    protected $class = ['form-control'];
+    protected $onchange = null;
     protected $disabled = false;
+    protected $required = false;
+    protected $readonly = false;
 
     public function __construct(){}
 
@@ -69,26 +72,26 @@ abstract class Element implements ViewRender
     /**
      * @param bool $disabled
      */
-    public function isDisable($disabled = true)
+    public function isDisabled(bool $disabled = true)
     {
-        $this->disabled = (boolean)$disabled;
+        $this->disabled = $disabled;
     }
 
     /**
      * @param bool $required
 
      */
-    public function isRequired($required = true)
+    public function isRequired(bool $required = true)
     {
-        $this->required = (boolean)$required;
+        $this->required = $required;
     }
 
     /**
      * @param bool $readonly
      */
-    public function isReadonly($readonly = true)
+    public function isReadonly(bool $readonly = true)
     {
-        $this->readonly = (boolean)$readonly;
+        $this->readonly = $readonly;
     }
 
     /**

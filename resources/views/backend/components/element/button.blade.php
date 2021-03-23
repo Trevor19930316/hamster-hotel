@@ -64,6 +64,28 @@
                 @endslot
             @endcomponent
 
+            @component('backend.template.components.base.cards.card')
+                @slot('cardTitle')
+                    a button
+                @endslot
+                @slot('cardContent')
+                    @component('backend.template.components.base.row.form-row')
+                        @slot('label','a button')
+                        @slot('content')
+                            <?php
+                            $EButtonA = new \Libraries\element\EButtonA();
+                            $EButtonA->setClass('btn-secondary');
+                            $EButtonA->setIcon('home');
+                            $EButtonA->setText('首頁連結');
+                            $EButtonA->setLink(route('backend.dashboard'));
+                            $EButtonA->setTarget('_blank');
+                            $EButtonA->show();
+                            ?>
+                        @endslot
+                    @endcomponent
+                @endslot
+            @endcomponent
+
         </div>
     </div>
 

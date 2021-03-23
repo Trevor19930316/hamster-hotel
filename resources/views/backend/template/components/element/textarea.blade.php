@@ -9,7 +9,7 @@ $minlength = $minlength ?? null;
 $placeholder = $placeholder ?? null;
 $onkeyup = $onkeyup ?? null;
 $onkeydown = $onkeydown ?? null;
-$disable = $disable ?? false;
+$disabled = $disabled ?? false;
 $required = $required ?? false;
 $readonly = $readonly ?? false;
 $text = $text ?? null;
@@ -25,7 +25,7 @@ $text = $text ?? null;
     {!! !is_null($placeholder) ? 'placeholder="'.$placeholder.'"' : null !!}
     {!! !is_null($onkeyup) ? 'onkeyup="'.$onkeyup.'"' : null !!}
     {!! !is_null($onkeydown) ? 'onkeydown="'.$onkeydown.'"' : null !!}
-    {!! $disable ? 'disable' : null !!}
+    {!! $disabled ? 'disabled' : null !!}
     {!! $required ? 'required' : null !!}
     {!! $readonly ? 'readonly' : null !!}
 >@if(!is_null($text)){{$text}}@endif

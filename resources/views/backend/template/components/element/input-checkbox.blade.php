@@ -4,7 +4,7 @@ $id = $id ?? null;
 $class = $class ?? ['form-check-input'];
 $checkboxValue = $checkboxValue ?? [];
 $checkedValue = $checkedValue ?? null;
-$disable = $disable ?? false;
+$disabled = $disabled ?? false;
 $required = $required ?? false;
 $readonly = $readonly ?? false;
 $inline = $inline ?? false;
@@ -18,7 +18,7 @@ $inline = $inline ?? false;
                     class="{!! join(' ', $class) !!}"
                     {!! !is_null($name) ? 'name="'.$name.'"' : null !!}
                     {!! !is_null($id) ? 'id="'.$id.'"' : null !!}
-                    {!! $disable ? 'disable' : null !!}
+                    {!! $disabled ? 'disabled' : null !!}
                     {!! $required ? 'required' : null !!}
                     {!! $readonly ? 'readonly' : null !!}
                     @if(!is_null($checkedValue))

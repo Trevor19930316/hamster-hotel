@@ -14,7 +14,7 @@ $minlength = $minlength ?? null;
 $placeholder = $placeholder ?? null;
 $onkeyup = $onkeyup ?? null;
 $onkeypress = $onkeypress ?? null;
-$disable = $disable ?? false;
+$disabled = $disabled ?? false;
 $required = $required ?? false;
 $readonly = $readonly ?? false;
 $textNumber = $textNumber ?? false;
@@ -35,7 +35,7 @@ $textNumber = $textNumber ?? false;
     {!! !is_null($onchange) ? 'onchange="'.$onchange.'"' : null !!}
     {!! !is_null($onkeyup) ? 'onkeyup="'.$onkeyup.'"' : null !!}
     {!! !is_null($onkeypress) ? 'onkeypress="'.$onkeypress.'"' : null !!}
-    {!! $disable ? 'disable' : null !!}
+    {!! $disabled ? 'disabled' : null !!}
     {!! $required ? 'required' : null !!}
     {!! $readonly ? 'readonly' : null !!}
     @if($textNumber)

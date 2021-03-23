@@ -17,7 +17,7 @@ $readonly = $readonly ?? false;
     {!! !is_null($id) ? 'id="'.$id.'"' : null !!}
     {!! !is_null($size) ? 'size="'.$size.'"' : null !!}
     {!! !is_null($onchange) ? 'onchange="'.$onchange.'"' : null !!}
-    {!! $disable ? 'disable' : null !!}
+    {!! $disabled ? 'disabled' : null !!}
     {!! $required ? 'required' : null !!}
     {!! $readonly ? 'readonly' : null !!}>
     @if($firstOption)

@@ -5,7 +5,7 @@ $class = $class ?? ['form-check-input'];
 $radioData = $radioData ?? [];
 $checkedValue = $checkedValue ?? null;
 $onchange = $onchange ?? null;
-$disable = $disable ?? false;
+$disabled = $disabled ?? false;
 $required = $required ?? false;
 $readonly = $readonly ?? false;
 $inline = $inline ?? false;
@@ -21,7 +21,7 @@ $inline = $inline ?? false;
                     {!! !is_null($id) ? 'id="'.$id.'"' : null !!}
                     {!! !is_null($value) ? 'value="'.$value.'"' : null !!}
                     {!! !is_null($onchange) ? 'onchange="'.$onchange.'"' : null !!}
-                    {!! $disable ? 'disable' : null !!}
+                    {!! $disabled ? 'disabled' : null !!}
                     {!! $required ? 'required' : null !!}
                     {!! $readonly ? 'readonly' : null !!}
                     @if(!is_null($checkedValue))

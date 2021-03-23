@@ -4,20 +4,17 @@ namespace Libraries\element;
 
 abstract class Element implements ViewRender
 {
-    protected $name = null;
-    protected $id = null;
-    protected $class = ['form-control'];
-    protected $onchange = null;
-    protected $disable = false;
-    protected $required = false;
-    protected $readonly = false;
+    protected $class = [];
+    protected $text = null;
+    protected $dataAttributes = [];
+    protected $disabled = false;
 
     public function __construct(){}
 
     /**
      * reset the object vars
      */
-    public function reset()
+    protected function reset()
     {
         $vars = get_class_vars(get_class($this));
         foreach ($vars as $var => $varDef) {
@@ -49,8 +46,16 @@ abstract class Element implements ViewRender
      */
     public function setClass($class)
     {
-        //$this->class[] += $class;
         array_push($this->class, $class);
+    }
+
+    /**
+     * @param array $classes
+
+     */
+    public function setClasses(array $classes)
+    {
+        $this->class = array_unique(array_merge($this->class, $classes));
     }
 
     /**
@@ -62,11 +67,11 @@ abstract class Element implements ViewRender
     }
 
     /**
-     * @param bool $disable
+     * @param bool $disabled
      */
-    public function isDisable($disable = true)
+    public function isDisable($disabled = true)
     {
-        $this->disable = (boolean)$disable;
+        $this->disabled = (boolean)$disabled;
     }
 
     /**
@@ -89,7 +94,7 @@ abstract class Element implements ViewRender
     /**
      * @return array
      */
-    public function getClassVar()
+    protected function getClassVar()
     {
         return get_object_vars($this);
     }

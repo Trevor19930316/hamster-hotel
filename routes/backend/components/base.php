@@ -18,4 +18,8 @@ Route::prefix('base')->group(function () {
         return view('backend.components.base.form');
     });
 
+    Route::get('/input-group', function () {
+        return view('backend.components.base.input-group');
+    });
+
 });

@@ -209,6 +209,7 @@ class MenusTableSeeder extends Seeder
         $this->insertLink('Admin', 'Cards', '/backend/components/base/cards');
         $this->insertLink('Admin', 'Tables', '/backend/components/base/tables');
         $this->insertLink('Admin', 'Form', '/backend/components/base/form');
+        $this->insertLink('Admin', 'Input Group', '/backend/components/base/input-group');
         $this->endDropdown();
 
         $this->beginDropdown('Admin', 'Notifications', 'cil-bell');

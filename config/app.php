@@ -235,6 +235,11 @@ return [
          * Debugbar
          */
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        /*
+         * Markdown
+         */
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
     ],
 
 ];

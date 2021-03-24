@@ -3,8 +3,12 @@
 namespace Libraries\element;
 
 
+use Libraries\BaseClass;
+
 class EButtonA implements ViewRender
 {
+    use BaseClass;
+
     protected $class = ['btn btn-prim'];
     protected $icon = null;
     protected $text = null;
@@ -13,25 +17,6 @@ class EButtonA implements ViewRender
     protected $onclick = null;
     protected $disabled = false;
     protected $dataAttributes = [];
-
-    /**
-     * @return array
-     */
-    protected function getClassVar()
-    {
-        return get_object_vars($this);
-    }
-
-    /**
-     * reset the object vars
-     */
-    protected function reset()
-    {
-        $vars = get_class_vars(get_class($this));
-        foreach ($vars as $var => $varDef) {
-            $this->$var = $varDef;
-        }
-    }
 
     public function view()
     {

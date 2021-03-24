@@ -3,10 +3,13 @@
 namespace Libraries\element;
 
 
+use Libraries\BaseClass;
 use RuntimeException;
 
 class EIcon implements ViewRender
 {
+    use BaseClass;
+
     protected $icons = [];
     protected $iconsText = [];
 
@@ -38,17 +41,6 @@ class EIcon implements ViewRender
     {
         echo $this->view();
         $this->reset();
-    }
-
-    /**
-     * reset the object vars
-     */
-    protected function reset()
-    {
-        $vars = get_class_vars(get_class($this));
-        foreach ($vars as $var => $varDef) {
-            $this->$var = $varDef;
-        }
     }
 
     /**
@@ -107,14 +99,6 @@ class EIcon implements ViewRender
     public function isShowText(bool $showText = true): void
     {
         $this->showText = $showText;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getClassVar()
-    {
-        return get_object_vars($this);
     }
 
     /**

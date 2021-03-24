@@ -2,8 +2,12 @@
 
 namespace Libraries\element;
 
+use Libraries\BaseClass;
+
 abstract class Element implements ViewRender
 {
+    use BaseClass;
+
     protected $name = null;
     protected $id = null;
     protected $class = ['form-control'];
@@ -11,19 +15,6 @@ abstract class Element implements ViewRender
     protected $disabled = false;
     protected $required = false;
     protected $readonly = false;
-
-    public function __construct(){}
-
-    /**
-     * reset the object vars
-     */
-    protected function reset()
-    {
-        $vars = get_class_vars(get_class($this));
-        foreach ($vars as $var => $varDef) {
-            $this->$var = $varDef;
-        }
-    }
 
     /**
      * @param null $name
@@ -92,13 +83,5 @@ abstract class Element implements ViewRender
     public function isReadonly(bool $readonly = true)
     {
         $this->readonly = $readonly;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getClassVar()
-    {
-        return get_object_vars($this);
     }
 }

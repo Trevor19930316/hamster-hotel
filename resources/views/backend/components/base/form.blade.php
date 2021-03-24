@@ -43,6 +43,28 @@
             {{-- end form 模組 --}}
         </div>
         <div class="col-sm-6">
+            @component('backend.template.components.base.cards.card')
+                @slot('cardContent')
+                    @component('backend.template.components.base.row.markdown')
+                        @slot('content')
+                            @markdown
+                            @verbatim
+                                @component('backend.template.components.base.form')
+                                    @slot('formName','formName')
+                                    @slot('formMethod','get')
+                                    @slot('formDisabledNullElements','true')
+                                    @slot('formValidation','false')
+                                    @slot('formContent')
+                                    @endslot
+                                @endcomponent
+                            @endverbatim
+                            @endmarkdown
+                        @endslot
+                    @endcomponent
+                @endslot
+            @endcomponent
+        </div>
+        <div class="col-sm-6">
             {{-- form 模組 --}}
             @component('backend.template.components.base.form')
                 @slot('formName','formName2')
@@ -76,6 +98,27 @@
                 @endslot
             @endcomponent
             {{-- end form 模組 --}}
+        </div>
+        <div class="col-sm-6">
+            @component('backend.template.components.base.cards.card')
+                @slot('cardContent')
+                    @component('backend.template.components.base.row.markdown')
+                        @slot('content')
+                            @markdown
+                            @verbatim
+                                @component('backend.template.components.base.form')
+                                    @slot('formName','formName')
+                                    @slot('formAction','')
+                                    @slot('formMethod','get')
+                                    @slot('formContent')
+                                    @endslot
+                                @endcomponent
+                            @endverbatim
+                            @endmarkdown
+                        @endslot
+                    @endcomponent
+                @endslot
+            @endcomponent
         </div>
         <div class="col-sm-6">
             {{-- form 模組 --}}
@@ -113,6 +156,27 @@
             {{-- end form 模組 --}}
         </div>
         <div class="col-sm-6">
+            @component('backend.template.components.base.cards.card')
+                @slot('cardContent')
+                    @component('backend.template.components.base.row.markdown')
+                        @slot('content')
+                            @markdown
+                            @verbatim
+                                @component('backend.template.components.base.form')
+                                    @slot('formName','formName')
+                                    @slot('formAction','')
+                                    @slot('formMethod','post')
+                                    @slot('formContent')
+                                    @endslot
+                                @endcomponent
+                            @endverbatim
+                            @endmarkdown
+                        @endslot
+                    @endcomponent
+                @endslot
+            @endcomponent
+        </div>
+        <div class="col-sm-6">
             {{-- form 模組 --}}
             @component('backend.template.components.base.form')
                 @slot('formName','formName3')
@@ -147,6 +211,28 @@
                 @endslot
             @endcomponent
             {{-- end form 模組 --}}
+        </div>
+        <div class="col-sm-6">
+            @component('backend.template.components.base.cards.card')
+                @slot('cardContent')
+                    @component('backend.template.components.base.row.markdown')
+                        @slot('content')
+                            @markdown
+                            @verbatim
+                                @component('backend.template.components.base.form')
+                                    @slot('formName','formName')
+                                    @slot('formAction','')
+                                    @slot('formMethod','post')
+                                    @slot('method','put')
+                                    @slot('formContent')
+                                    @endslot
+                                @endcomponent
+                            @endverbatim
+                            @endmarkdown
+                        @endslot
+                    @endcomponent
+                @endslot
+            @endcomponent
         </div>
     </div>
 @endsection

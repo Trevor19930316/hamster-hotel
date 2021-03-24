@@ -2,14 +2,14 @@
 $name = $name ?? null;
 $id = $id ?? null;
 $class = $class ?? ['form-check-input'];
-$checkboxValue = $checkboxValue ?? [];
+$checkboxData = $checkboxData ?? [];
 $checkedValue = $checkedValue ?? null;
 $disabled = $disabled ?? false;
 $required = $required ?? false;
 $readonly = $readonly ?? false;
 $inline = $inline ?? false;
 ?>
-@foreach($checkboxValue as $value => $text)
+@foreach($checkboxData as $value => $text)
     <div class="position-relative <?=$inline ? 'form-check-inline' : null;?>">
         <div class="form-check">
             <label class="form-check-label">

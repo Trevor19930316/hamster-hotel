@@ -8,7 +8,7 @@ use RuntimeException;
 class ECheckbox extends Element
 {
     protected $class = ['form-check-input'];
-    protected $checkboxValue = [];
+    protected $checkboxData = [];
     protected $checkedValue = null;
     protected $inline = false;
 
@@ -27,11 +27,20 @@ class ECheckbox extends Element
     }
 
     /**
-     * @param array $checkboxValue
+     * @param $value
+     * @param $text
      */
-    public function setCheckboxValue(array $checkboxValue)
+    public function setSingleCheckboxValue($value, $text): void
     {
-        $this->checkboxValue = $checkboxValue;
+        $this->checkboxData[$value] = $text;
+    }
+
+    /**
+     * @param array $checkboxData
+     */
+    public function setCheckboxData(array $checkboxData)
+    {
+        $this->checkboxData = $checkboxData;
     }
 
     /**

@@ -17,7 +17,7 @@
                             <?php
                             $ECheckbox = new \Libraries\element\ECheckbox();
                             $ECheckbox->setName('checkbox');
-                            $ECheckbox->setCheckboxValue([
+                            $ECheckbox->setCheckboxData([
                                 '2019' => '2019',
                                 '2020' => '2020',
                                 '2021' => '2021',
@@ -32,7 +32,7 @@
                             <div>
                                 <?php
                                 $ECheckbox->setName('checkbox_inline');
-                                $ECheckbox->setCheckboxValue([
+                                $ECheckbox->setCheckboxData([
                                     '2019' => '2019',
                                     '2020' => '2020',
                                     '2021' => '2021',

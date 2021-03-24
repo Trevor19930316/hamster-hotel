@@ -47,45 +47,6 @@
                             @endmarkdown
                         @endslot
                     @endcomponent
-                    @component('backend.template.components.base.row.form-row')
-                        @slot('label','內容 Input')
-                        @slot('content')
-                            @component('backend.template.components.base.input-group')
-                                @slot('prependCount',1)
-                                @slot('prependType1','text')
-                                @slot('prependContent1','@')
-                                @slot('content')
-                                    <?php
-                                    $EInput->setName('text');
-                                    $EInput->setType('text');
-                                    $EInput->show();
-                                    ?>
-                                @endslot
-                            @endcomponent
-                        @endslot
-                    @endcomponent
-                    @component('backend.template.components.base.row.form-row')
-                        @slot('label','前後 button')
-                        @slot('content')
-                            @component('backend.template.components.base.input-group')
-                                @slot('prependCount',1)
-                                @slot('prependContent1')
-                                    <button class="btn btn-secondary" type="button">btn</button>
-                                @endslot
-                                @slot('content')
-                                    <?php
-                                    $EInput->setName('text');
-                                    $EInput->setType('text');
-                                    $EInput->show();
-                                    ?>
-                                @endslot
-                                @slot('appendCount',1)
-                                @slot('appendContent1')
-                                    <button class="btn btn-secondary" type="button">btn</button>
-                                @endslot
-                            @endcomponent
-                        @endslot
-                    @endcomponent
                 @endslot
             @endcomponent
         </div>

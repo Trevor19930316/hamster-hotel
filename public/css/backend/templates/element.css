@@ -12,3 +12,7 @@
 .form-check .form-check-text {
     padding-left: .25rem;
 }
+
+pre {
+    margin-bottom: 0;
+}

@@ -1,6 +1,6 @@
 <?php
 $content = $content ?? null
 ?>
-<div class="ds-border p-3 rounded bg-light cursor-pointer">
+<div class="p-3 rounded bg-light">
     {!! $content !!}
 </div>

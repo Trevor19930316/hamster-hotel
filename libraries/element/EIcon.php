@@ -97,6 +97,6 @@ class EIcon implements ViewRender
      */
     public function getIconText()
     {
-       return $this->text;
+       return $this->title;
     }
 }

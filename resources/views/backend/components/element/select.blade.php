@@ -24,41 +24,26 @@
                             ?>
                         @endslot
                     @endcomponent
-                    @component('backend.template.components.base.row.form-row')
-                        @slot('label','Options')
-                        @slot('content')
-                            <?php
-                            $options = [
-                                '2020' => '2020',
-                                '2021' => '2021',
-                                '2022' => '2022',
-                            ];
-                            $ESelect->setName('options');
-                            $ESelect->setOptions($options);
-                            $ESelect->show();
-                            ?>
-                        @endslot
-                    @endcomponent
-                    @component('backend.template.components.base.row.form-row')
-                        @slot('label','Options Groups')
-                        @slot('content')
-                            <?php
-                            $options1 = [
-                                '2020' => '2020',
-                                '2021' => '2021',
-                                '2022' => '2022',
-                            ];
-                            $options2 = [
-                                '0' => 'female',
-                                '1' => 'male',
-                            ];
-                            $ESelect->setName('optionsGroups');
-                            $ESelect->setOptionGroup('year', $options1);
-                            $ESelect->setOptionGroup('sex', $options2);
-                            $ESelect->show();
-                            ?>
-                        @endslot
-                    @endcomponent
+                        @component('backend.template.components.base.row.form-row')
+                            @slot('label','Options Groups')
+                            @slot('content')
+                                <?php
+                                $options1 = [
+                                    '2020' => '2020',
+                                    '2021' => '2021',
+                                    '2022' => '2022',
+                                ];
+                                $options2 = [
+                                    '0' => 'female',
+                                    '1' => 'male',
+                                ];
+                                $ESelect->setName('optionsGroups');
+                                $ESelect->setOptionGroup('year', $options1);
+                                $ESelect->setOptionGroup('sex', $options2);
+                                $ESelect->show();
+                                ?>
+                            @endslot
+                        @endcomponent
                 @endslot
             @endcomponent
         </div>

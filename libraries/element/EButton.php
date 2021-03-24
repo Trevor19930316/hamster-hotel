@@ -120,7 +120,6 @@ class EButton implements ViewRender
     {
         $EIcon = new EIcon();
         $EIcon->setIcon($icon);
-        $EIcon->isShowText(false);
         $icon = $EIcon->view();
 
         return $icon;

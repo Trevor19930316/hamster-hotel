@@ -15,9 +15,8 @@ class EIcon implements ViewRender
 
     protected $class = [];
     protected $icon = null;
-    protected $text = null;
+    protected $title = null;
     protected $dataAttributes = [];
-    protected $showText = true;
 
     public function __construct()
     {
@@ -44,9 +43,9 @@ class EIcon implements ViewRender
     }
 
     /**
-     * @param array $class
+     * @param $class
      */
-    public function setClass(array $class): void
+    public function setClass($class): void
     {
         array_push($this->class, $class);
     }
@@ -70,18 +69,18 @@ class EIcon implements ViewRender
 
         $this->icon = $this->icons[$icon];
 
-        // 未定義 text 文字內容，預設帶入 config 資料
-        if (is_null($this->text)) {
-            $this->text = $this->iconsText[$icon];
+        // 未定義 title 文字，預設帶入 config 資料
+        if (is_null($this->title)) {
+            $this->title = $this->iconsText[$icon];
         }
     }
 
     /**
-     * @param $text
+     * @param $title
      */
-    public function setText($text)
+    public function setTitle($title)
     {
-        $this->text = $text;
+        $this->title = $title;
     }
 
     /**
@@ -91,14 +90,6 @@ class EIcon implements ViewRender
     public function setDataAttributes($dataName, $dataValue): void
     {
         $this->dataAttributes[$dataName] = $dataValue;
-    }
-
-    /**
-     * @param bool $showText
-     */
-    public function isShowText(bool $showText = true): void
-    {
-        $this->showText = $showText;
     }
 
     /**

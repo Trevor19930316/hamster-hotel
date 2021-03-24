@@ -1,8 +1,7 @@
 <?php
 $icon = $icon ?? null;
-$text = $text ?? null;
+$title = $title ?? null;
 $dataAttributes = $dataAttributes ?? [];
-$showText = $showText ?? true;
 ?>
 <i class="{!! $icon !!}"
 @if ($dataAttributes)
@@ -10,8 +9,6 @@ $showText = $showText ?? true;
         {!! $dataName !!}="{!! $dataValue !!}"
     @endforeach
 @endif
-@if($showText)
-    title="{{$text}}"
-@endif
+title="{{$title}}"
 >
 </i>

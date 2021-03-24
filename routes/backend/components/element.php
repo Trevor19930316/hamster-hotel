@@ -26,6 +26,10 @@ Route::prefix('element')->group(function () {
         return view('backend.components.element.textarea');
     });
 
+    Route::get('/icon', function () {
+        return view('backend.components.element.icon');
+    });
+
     Route::get('/image', function () {
         return view('backend.components.element.image');
     });

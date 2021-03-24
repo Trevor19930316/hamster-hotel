@@ -1,9 +1,10 @@
 @extends('backend.template.base')
-
-@section('title', '')
-
+@section('htmlHeadPlugin')
+    <?php
+    $EInput = new \Libraries\element\EInput();
+    ?>
+@endsection
 @section('content')
-
     <div class="row">
         <div class="col-sm-6">
             @component('backend.template.components.base.cards.card')
@@ -15,7 +16,6 @@
                         @slot('label','Name')
                         @slot('content')
                             <?php
-                            $EInput = new \Libraries\element\EInput();
                             $EInput->setType('text');
                             $EInput->setName('text');
                             $EInput->setId('text');
@@ -83,5 +83,4 @@
             @endcomponent
         </div>
     </div>
-
 @endsection

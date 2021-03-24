@@ -1,9 +1,10 @@
 @extends('backend.template.base')
-
-@section('title', '')
-
+@section('htmlHeadPlugin')
+    <?php
+    $ETextarea = new \Libraries\element\ETextarea();
+    ?>
+@endsection
 @section('content')
-
     <div class="row">
         <div class="col-sm-6">
             @component('backend.template.components.base.cards.card')
@@ -15,7 +16,6 @@
                         @slot('label','textarea')
                         @slot('content')
                             <?php
-                            $ETextarea = new \Libraries\element\ETextarea();
                             $ETextarea->setName('textarea');
                             $ETextarea->setText('textarea');
                             $ETextarea->show();
@@ -26,5 +26,4 @@
             @endcomponent
         </div>
     </div>
-
 @endsection

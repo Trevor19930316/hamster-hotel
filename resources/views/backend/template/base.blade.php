@@ -9,7 +9,6 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>@yield('title')</title>
     {{--<link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">--}}
     {{--<link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">--}}
     {{--<link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">--}}
@@ -27,45 +26,34 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    {{-- Icons --}}
-    <link href="{{ asset('css/free.min.css') }}" rel="stylesheet"> <!-- icons -->
-    {{--<link href="{{ asset('css/flag-icon.min.css') }}" rel="stylesheet"> <!-- icons -->--}}
+    <title>@yield('title')</title>
 
+    <link href="{{ asset('css/free.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/coreui.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/coreui-chartjs.css') }}" rel="stylesheet">
 
     {{-- Main styles for this application --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- Element styles --}}
     <link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">
 
-    @yield('css')
-
-    {{-- 1. 載入 plugin 包 --}}
+    {{-- 載入 plugin 包 --}}
     {{-- jQuery --}}
-    {{-- jQuery 3.3.1 --}}
     <script src="{{asset('plugin/jquery/3.3.1/jquery.min.js')}}"></script>
     {{-- jQuery easing --}}
     <script src="{{asset('plugin/jquery/easing/1.4.2/easing.min.js')}}"></script>
-
+    {{-- bootstrap --}}
     <script src="{{asset('plugin/bootstrap/4.3.1/js/bootstrap.js')}}"></script>
 
-    {{-- Global site tag (gtag.js) - Google Analytics --}}
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    {{-- google ads --}}
+    {{--@include('backend.template.include.google-ads')--}}
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        // Shared ID
-        gtag('config', 'UA-118965717-3');
-        // Bootstrap ID
-        gtag('config', 'UA-118965717-5');
-    </script>
-
-    <link href="{{ asset('css/coreui-chartjs.css') }}" rel="stylesheet">
+    {{-- 自訂 Plugin --}}
+    @yield('htmlHeadPlugin')
+    {{-- 自訂 Css --}}
+    @yield('htmlHeadCss')
+    {{-- 自訂 JavaScript --}}
+    @yield('htmlHeadJs')
 </head>
 
 <body class="c-app">

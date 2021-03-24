@@ -14,4 +14,8 @@ Route::prefix('base')->group(function () {
         return view('backend.components.base.tables');
     });
 
+    Route::get('/form', function () {
+        return view('backend.components.base.form');
+    });
+
 });

@@ -44,6 +44,8 @@
     <script src="{{asset('plugin/jquery/easing/1.4.2/easing.min.js')}}"></script>
     {{-- bootstrap --}}
     <script src="{{asset('plugin/bootstrap/4.3.1/js/bootstrap.js')}}"></script>
+    {{-- bootstrap validation --}}
+    <script src="{{asset('plugin/bootstrap/4.3.1/validation.js')}}"></script>
 
     {{-- google ads --}}
     {{--@include('backend.template.include.google-ads')--}}
@@ -77,11 +79,13 @@
     </div>
 </div>
 
-<!-- CoreUI and necessary plugins-->
+<!-- CoreUI and necessary plugins -->
 <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
 <script src="{{ asset('js/coreui-utils.js') }}"></script>
 
-<script src="{{ asset('js/helper.js') }}"></script>
+<!-- backend js -->
+<script src="{{ asset('js/backend/helper.js') }}"></script>
+<script src="{{ asset('js/backend/form.js') }}"></script>
 
 @yield('javascript')
 

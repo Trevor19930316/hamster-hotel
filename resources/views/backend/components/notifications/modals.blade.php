@@ -25,7 +25,7 @@
                         @endslot
                     @endcomponent
 
-                    <button class="btn btn-secondary mb-1" type="button" data-toggle="modal" data-target="#largeModal">
+                    <button class="btn btn-secondary mb-1" type="button" onclick="modalShow('largeModal');">
                         Launch large modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')
@@ -39,7 +39,7 @@
                         @endslot
                     @endcomponent
 
-                    <button class="btn btn-secondary mb-1" type="button" data-toggle="modal" data-target="#smallModal">
+                    <button class="btn btn-secondary mb-1" type="button" onclick="modalShow('smallModal');">
                         Launch small modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')
@@ -54,7 +54,7 @@
                     @endcomponent
 
                     <hr>
-                    <button class="btn btn-primary mb-1" type="button" data-toggle="modal" data-target="#primaryModal">
+                    <button class="btn btn-primary mb-1" type="button" onclick="modalShow('primaryModal');">
                         Primary modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')
@@ -68,7 +68,7 @@
                         @endslot
                     @endcomponent
 
-                    <button class="btn btn-success mb-1" type="button" data-toggle="modal" data-target="#successModal">
+                    <button class="btn btn-success mb-1" type="button" onclick="modalShow('successModal');">
                         Success modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')
@@ -82,7 +82,7 @@
                         @endslot
                     @endcomponent
 
-                    <button class="btn btn-warning mb-1" type="button" data-toggle="modal" data-target="#warningModal">
+                    <button class="btn btn-warning mb-1" type="button" onclick="modalShow('warningModal');">
                         Warning modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')
@@ -96,7 +96,7 @@
                         @endslot
                     @endcomponent
 
-                    <button class="btn btn-danger mb-1" type="button" data-toggle="modal" data-target="#dangerModal">
+                    <button class="btn btn-danger mb-1" type="button" onclick="modalShow('dangerModal');">
                         Danger modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')
@@ -110,7 +110,7 @@
                         @endslot
                     @endcomponent
 
-                    <button class="btn btn-info mb-1" type="button" data-toggle="modal" data-target="#infoModal">
+                    <button class="btn btn-info mb-1" type="button" onclick="modalShow('infoModal');">
                         Info modal
                     </button>
                     @component('backend.template.components.notifications.modals.modal')

@@ -5,15 +5,37 @@ namespace Libraries\element;
 
 use RuntimeException;
 
-class EButton extends Element
+class EButton implements ViewRender
 {
+    protected $name = null;
+    protected $id = null;
     protected $class = ['btn'];
     protected $type = 'button';
     protected $text = null;
     protected $icon = null;
     protected $iconPosition = null;
     protected $onclick = null;
+    protected $disabled = false;
     protected $textResponsive = true;
+
+    /**
+     * @return array
+     */
+    protected function getClassVar()
+    {
+        return get_object_vars($this);
+    }
+
+    /**
+     * reset the object vars
+     */
+    protected function reset()
+    {
+        $vars = get_class_vars(get_class($this));
+        foreach ($vars as $var => $varDef) {
+            $this->$var = $varDef;
+        }
+    }
 
     public function view()
     {
@@ -27,7 +49,43 @@ class EButton extends Element
         $this->reset();
     }
 
-    public function setType($type)
+    /**
+     * @param null $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param null $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param array $class
+     */
+    public function setClass(array $class): void
+    {
+        $this->class = $class;
+    }
+
+    /**
+     * @param array $classes
+
+     */
+    public function setClasses(array $classes)
+    {
+        $this->class = array_unique(array_merge($this->class, $classes));
+    }
+
+    /**
+     * @param $type
+     */
+    public function setType($type): void
     {
         if (!in_array($type, ['button', 'submit', 'reset'])) {
             throw new RuntimeException("EButton setType($type) is invalid.");
@@ -87,7 +145,7 @@ class EButton extends Element
     /**
      * @param $icon
      */
-    public function withLeftIcon($icon)
+    public function setLeftIcon($icon)
     {
         $this->iconPosition = 'left';
         $this->icon = $this->getIcon($icon);
@@ -96,7 +154,7 @@ class EButton extends Element
     /**
      * @param $icon
      */
-    public function withRightIcon($icon)
+    public function setRightIcon($icon)
     {
         $this->iconPosition = 'right';
         $this->icon = $this->getIcon($icon);

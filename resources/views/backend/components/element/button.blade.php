@@ -56,7 +56,7 @@
                             $EButton->setType('button');
                             $EButton->setName('button');
                             $EButton->setText('下載');
-                            $EButton->withLeftIcon('cloud-download');
+                            $EButton->setLeftIcon('cloud-download');
                             $EButton->show();
                             ?>
                         @endslot

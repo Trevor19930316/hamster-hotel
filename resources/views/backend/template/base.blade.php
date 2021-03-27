@@ -35,7 +35,9 @@
     {{-- Main styles for this application --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- Element styles --}}
-    <link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">
+    {{--<link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">--}}
+    {{-- Element image styles --}}
+    <link href="{{ asset('css/backend/templates/image.css') }}" rel="stylesheet">
 
     {{-- 載入 plugin 包 --}}
     {{-- jQuery --}}

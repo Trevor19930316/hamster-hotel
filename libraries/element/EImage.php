@@ -4,7 +4,6 @@ namespace Libraries\element;
 
 
 use Libraries\BaseClass;
-use RuntimeException;
 
 class EImage implements ViewRender
 {
@@ -13,9 +12,10 @@ class EImage implements ViewRender
     protected $divClass = [];
     protected $imageClass = ['img-fluid'];
     protected $imageData = '#';
-    // 形狀 square,circle
-    //protected $shape = 'square';
+
     // size
+    protected $divWidth = null;
+    protected $divHeight = null;
     protected $width = null;
     protected $height = null;
 
@@ -61,10 +61,19 @@ class EImage implements ViewRender
         $this->height = $height;
     }
 
-    public function isThumbnail()
+    /**
+     * 縮圖固定是正方形
+     * @param null $size
+     */
+    public function isThumbnail($size = null)
     {
-        //$this->shape = 'square';
-        $this->divClass = ['square-size-100'];
+        if (is_null($size)) {
+            // 預設帶入 100px * 100px
+            $this->divClass = ['square-size-100'];
+        } else {
+            $this->divWidth = $size . 'px';
+            $this->divHeight = $size . 'px';
+        }
         $this->imageClass = ['imageThumbnail', 'img-thumbnail'];
     }
 
@@ -73,7 +82,6 @@ class EImage implements ViewRender
      */
     public function isSquare($size = null)
     {
-        //$this->shape = 'square';
         $this->width = $size . 'px';
         $this->height = $size . 'px';
         $this->imageClass = [];
@@ -84,7 +92,6 @@ class EImage implements ViewRender
      */
     public function isCircle($diameter = null)
     {
-        //$this->shape = 'circle';
         $this->width = $diameter . 'px';
         $this->height = $diameter . 'px';
         $this->imageClass = ['rounded-circle'];

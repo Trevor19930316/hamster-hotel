@@ -35,9 +35,7 @@
     {{-- Main styles for this application --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {{-- Element styles --}}
-    {{--<link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">--}}
-    {{-- Element image styles --}}
-    <link href="{{ asset('css/backend/templates/image.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">
 
     {{-- 載入 plugin 包 --}}
     {{-- jQuery --}}
@@ -88,6 +86,7 @@
 <!-- backend js -->
 <script src="{{ asset('js/backend/helper.js') }}"></script>
 <script src="{{ asset('js/backend/form.js') }}"></script>
+<script src="{{ asset('js/backend/element.js') }}"></script>
 
 @yield('javascript')
 

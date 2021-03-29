@@ -38,7 +38,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -85,19 +85,19 @@ return [
         'storage_public' => [
             'driver' => 'local',
             'root' => storage_path('public'),
-            'url' => env('APP_URL').'/storage/public',
+            'url' => env('APP_URL') . '/storage/public',
         ],
 
         'storage_private' => [
             'driver' => 'local',
             'root' => storage_path('private'),
-            'url' => env('APP_URL').'/storage/private',
+            'url' => env('APP_URL') . '/storage/private',
         ],
 
         'storage_images' => [
             'driver' => 'local',
             'root' => storage_path('images'),
-            'url' => env('APP_URL').'/storage/images',
+            'url' => env('APP_URL') . '/storage/images',
         ],
 
     ],
@@ -117,6 +117,28 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('images') => storage_path('app/images'),
         public_path('files') => storage_path('app/files'),
+    ],
+
+    // 自訂
+    'upload' => [
+        'extensions' => [
+            'file' => [
+                'csv',
+                'xlsx',
+                'pdf',
+                'txt',
+            ],
+            'image' => [
+                'png',
+                'jpg',
+                'jpeg',
+                'gif',
+            ]
+        ],
+        'quantities' => [
+            'kb',
+            'mb'
+        ]
     ],
 
 ];

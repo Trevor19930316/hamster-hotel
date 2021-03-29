@@ -28,7 +28,8 @@ class GetMenu
             //$userRoles = $userRoles['items'];
             $roleHierarchy = RoleHierarchy::select('role_hierarchy.role_id', 'roles.name')
                 ->join('roles', 'roles.id', '=', 'role_hierarchy.role_id')
-                ->orderBy('role_hierarchy.hierarchy', 'asc')->get();
+                ->orderBy('role_hierarchy.hierarchy', 'asc')
+                ->get();
             $flag = false;
             foreach ($roleHierarchy as $roleHier) {
                 foreach ($userRoles as $userRole) {
@@ -45,13 +46,14 @@ class GetMenu
         } else {
             $role = 'guest';
         }
-        //session(['prime_user_role' => $role]);
+
         $menus = new GetSidebarMenu();
         $menulists = Menulist::all();
         $result = array();
         foreach ($menulists as $menulist) {
             $result[$menulist->name] = $menus->get($role, $menulist->id);
         }
+
         view()->share('appMenus', $result);
         return $next($request);
     }

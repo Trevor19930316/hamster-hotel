@@ -20,7 +20,7 @@ class CreateMenusTable extends Migration
             $table->string('icon')->nullable();
             $table->string('slug'); // title,link,dropdown
             $table->integer('parent_id')->unsigned()->nullable(); // menus.id
-            $table->integer('menu_list_id')->unsigned(); // menu_list.id
+            $table->integer('menulist_id')->unsigned(); // menulist.id
             $table->integer('sequence')->index(); // 順序
             $table->timestamps();
         });

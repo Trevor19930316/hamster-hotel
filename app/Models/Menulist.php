@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuList extends Model
+class Menulist extends Model
 {
-    protected $table = 'menu_list';
+    protected $table = 'menulist';
     public $timestamps = false;
 }

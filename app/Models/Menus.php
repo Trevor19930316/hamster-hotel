@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed icon
  * @property mixed slug
  * @property mixed parent_id
- * @property mixed menu_list_id
+ * @property mixed menulist_id
  * @property mixed sequence
  * @property mixed created_at
  * @property mixed updated_at

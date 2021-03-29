@@ -22,9 +22,10 @@ class GetSidebarMenu implements MenuInterface
     {
         $this->menu = Menus::join('menu_role', 'menus.id', '=', 'menu_role.menus_id')
             ->select('menus.*')
-            ->where('menus.menu_list_id', '=', $menuId)
+            ->where('menus.menulist_id', '=', $menuId)
             ->where('menu_role.role_name', '=', $menuName)
-            ->orderBy('menus.sequence', 'asc')->get();
+            ->orderBy('menus.sequence', 'asc')
+            ->get();
     }
 
     private function getGuestMenu($menuId)

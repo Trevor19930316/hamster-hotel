@@ -22,19 +22,23 @@ Route::middleware(['auth:web'])->group(function () {
 
         })->name('backend.dashboard');
 
-        // components
-        Route::prefix('components')->group(function () {
-
-            // base
-            require 'components/base.php';
-
-            // element
-            require 'components/element.php';
-
-            // notifications
-            require 'components/notifications.php';
+        // settings
+        Route::prefix('settings')->group(function () {
+            // Users
+            require 'settings/users.php';
         });
 
-    });
+        Route::group(['middleware' => ['role:Super-Admin']], function () {
 
+            // components
+            Route::prefix('components')->group(function () {
+                // base
+                require 'components/base.php';
+                // element
+                require 'components/element.php';
+                // notifications
+                require 'components/notifications.php';
+            });
+        });
+    });
 });

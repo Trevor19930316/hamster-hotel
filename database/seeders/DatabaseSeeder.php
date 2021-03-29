@@ -26,9 +26,10 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             OwnerSeeder::class,
             HamsterSeeder::class,
-            UserSeeder::class,
             ApiUserSeeder::class,
             MenusTableSeeder::class,
+            PermissionSeeder::class,
+            UserSeeder::class,
         ]);
 
     }

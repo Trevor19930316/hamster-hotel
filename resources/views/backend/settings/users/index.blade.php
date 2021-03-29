@@ -1,0 +1,46 @@
+@extends('backend.template.base')
+@section('htmlHeadPlugin')
+    <?php
+    ?>
+@endsection
+@section('content')
+    <div class="row">
+        <div class="col-sm-12">
+            @component('backend.template.components.base.cards.card')
+                @slot('cardTitle',null)
+                @slot('cardContent')
+                    @component('backend.template.components.base.tables.table')
+                        @slot('tableThead')
+                            <tr>
+                                <th>id</th>
+                                <th>名稱</th>
+                                <th>Email</th>
+                                @can('users.create')
+                                    <th>users.create</th>
+                                @endcan
+                                @role('Super-Admin')
+                                <th>Super-Admin</th>
+                                @endrole
+                            </tr>
+                        @endslot
+                        @slot('tableTbody')
+                            @foreach($users as $user)
+                                <tr>
+                                    <td>
+                                        {{$user->id}}
+                                    </td>
+                                    <td>
+                                        {{$user->name}}
+                                    </td>
+                                    <td>
+                                        {{$user->email}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endslot
+                    @endcomponent
+                @endslot
+            @endcomponent
+        </div>
+    </div>
+@endsection

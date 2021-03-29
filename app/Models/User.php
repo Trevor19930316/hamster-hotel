@@ -3,11 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * Class User
+ * @package App\Models
+ * @mixin Builder
+ * @property mixed id
+ * @property mixed name
+ * @property mixed email
+ * @property mixed email_verified_at
+ * @property mixed password
+ * @property mixed menuroles
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -25,6 +37,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'menuroles',
     ];
 
     /**
@@ -45,9 +58,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    protected $attributes = [
-        'menu_roles' => 'user',
-    ];
-
 }

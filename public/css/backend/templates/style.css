@@ -1,0 +1,20 @@
+/*============ Flex ===============*/
+.flex-grow-3 {
+    -ms-flex-positive: 3 !important;
+    flex-grow: 3 !important;
+}
+
+/*============ outline - gray ===============*/
+.button-outline-gray {
+    border-color: #ced4da;
+    background-color: #FFF;
+    transition: all .4s;
+}
+
+.button-outline-gray:hover,
+.button-outline-gray.active {
+    background-color: #343F4B;
+    border-color: #343F4B;
+    color: #fff;
+}
+

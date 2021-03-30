@@ -28,14 +28,17 @@
     <meta name="theme-color" content="#ffffff">
     <title>@yield('title')</title>
 
+    {{-- coreui --}}
     <link href="{{ asset('css/free.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/coreui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/coreui-chartjs.css') }}" rel="stylesheet">
 
+    <!-- CoreUI and necessary plugins -->
+    <script src="{{ asset('js/coreui.bundle.js') }}"></script>
+    <script src="{{ asset('js/coreui-utils.js') }}"></script>
+
     {{-- Main styles for this application --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    {{-- Element styles --}}
-    <link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">
 
     {{-- 載入 plugin 包 --}}
     {{-- jQuery --}}
@@ -43,12 +46,18 @@
     {{-- jQuery easing --}}
     <script src="{{asset('plugin/jquery/easing/1.4.2/easing.min.js')}}"></script>
     {{-- bootstrap --}}
-    <script src="{{asset('plugin/bootstrap/4.3.1/js/bootstrap.js')}}"></script>
+    <script src="{{asset('plugin/bootstrap/4.4.1/js/bootstrap.js')}}"></script>
     {{-- bootstrap validation --}}
-    <script src="{{asset('plugin/bootstrap/4.3.1/validation.js')}}"></script>
+    <script src="{{asset('plugin/bootstrap/4.4.1/validation.js')}}"></script>
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="{{asset('plugin/fontawesome/5.12.1/css/all.min.css')}}">
 
     {{-- google ads --}}
     {{--@include('backend.template.include.google-ads')--}}
+
+    {{-- 自訂 styles --}}
+    <link href="{{ asset('css/backend/templates/element.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/backend/templates/style.css') }}" rel="stylesheet">
 
     {{-- 自訂 Plugin --}}
     @yield('htmlHeadPlugin')
@@ -78,10 +87,6 @@
         @include('backend.template.shared.footer')
     </div>
 </div>
-
-<!-- CoreUI and necessary plugins -->
-<script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
-<script src="{{ asset('js/coreui-utils.js') }}"></script>
 
 <!-- backend js -->
 <script src="{{ asset('js/backend/helper.js') }}"></script>

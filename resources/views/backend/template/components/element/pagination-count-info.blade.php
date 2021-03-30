@@ -1,25 +1,12 @@
 <?php
-$divClass = $divClass ?? null;
-$imageClass = $imageClass ?? null;
-$imageData = $imageData ?? '#';
-
-$divWidth = $divWidth ?? null;
-$divHeight = $divHeight ?? null;
-$divStyle = null;
-$width = $width ?? null;
-$height = $height ?? null;
-
-if (!is_null($divWidth) || !is_null($divHeight)) {
-    $divStyle = "width:$divWidth;height:$divHeight;";
-}
+$totalRowsCount = $totalRowsCount ?? null;
+$pageRowsCount = $pageRowsCount ?? null;
+$totalPageCount = $totalPageCount ?? null;
 ?>
-<div class="elementImage {!! join(' ', $divClass) !!}" style="{!! $divStyle !!}">
-    <a href="{!! $imageData !!}" target="_blank">
-        <img
-            class="{!! join(' ', $imageClass) !!}"
-            src="{!! $imageData !!}"
-            {!! !is_null($width) ? 'width="'.$width.'"': null !!}
-            {!! !is_null($height) ? 'height="'.$height.'"' : null !!}
-            alt="image">
-    </a>
+<div class="text-center text-md-left d-flex">
+    <span class="p-2">{{__('pagination.page_data_count', ['count' => $pageRowsCount])}}</span>
+    <span class="p-2">|</span>
+    <span class="p-2">{{__('pagination.total_page', ['count' => $totalPageCount])}}</span>
+    <span class="p-2">|</span>
+    <span class="p-2">{{__('pagination.total_data_count', ['count' => $totalRowsCount])}}</span>
 </div>

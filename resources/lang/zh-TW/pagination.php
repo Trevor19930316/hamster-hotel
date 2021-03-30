@@ -16,4 +16,10 @@ return [
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
 
+    // 共 :count 筆資料
+    'total_data_count' => '共 :count 筆資料',
+    // 每頁 :count 筆
+    'page_data_count' => '每頁 :count 筆',
+    // 共 :count 頁
+    'total_page' => '共 :count 頁',
 ];

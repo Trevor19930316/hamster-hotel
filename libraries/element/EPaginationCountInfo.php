@@ -3,7 +3,7 @@
 namespace Libraries\element;
 
 
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Libraries\BaseClass;
 use RuntimeException;
 
@@ -28,9 +28,9 @@ class EPaginationCountInfo implements ViewRender
     }
 
     /**
-     * @param Collection $pagination
+     * @param LengthAwarePaginator $pagination
      */
-    public function setPagination(Collection $pagination): void
+    public function setPagination(LengthAwarePaginator $pagination): void
     {
         if ($pagination->isEmpty()) {
             throw new RuntimeException("{$this->getClassName()}} collection is empty.");
@@ -41,6 +41,6 @@ class EPaginationCountInfo implements ViewRender
         // 每頁筆數
         $this->pageRowsCount = $pagination->perPage();
         // 總頁數
-        $this->totalPageCount = $this->lastPage();
+        $this->totalPageCount = $pagination->lastPage();
     }
 }

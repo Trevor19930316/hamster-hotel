@@ -23,7 +23,7 @@ class EInput extends Element
     public function view()
     {
         if (is_null($this->type)) {
-            throw new RuntimeException("input type is null");
+            throw new RuntimeException("EInput type is null.");
         }
 
         $data = $this->getClassVar();
@@ -146,5 +146,6 @@ class EInput extends Element
     public function isTextNumber(bool $textNumber = true)
     {
         $this->textNumber = true;
+        $this->type = 'number';
     }
 }

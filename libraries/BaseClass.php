@@ -24,4 +24,12 @@ trait BaseClass
     {
         return get_object_vars($this);
     }
+
+    /**
+     * @return string
+     */
+    protected function getClassName()
+    {
+        return get_class($this);
+    }
 }

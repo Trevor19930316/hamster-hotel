@@ -9,3 +9,12 @@ $(function () {
     });
 
 });
+
+function paginationChangePage(form, page) {
+
+    let inputPage = form.find("input[name=currentPage]");
+    inputPage.val(page);
+
+    formDisabledNullElements(form);
+    form.submit();
+}

@@ -6,16 +6,16 @@ $previousPage = $previousPage ?? 1;
 $nextPage = $nextPage ?? 1;
 ?>
 <div class="pagination d-flex align-items-center">
-    <bu class="page-item cursor-pointer">
+    <span class="w-auto page-item cursor-pointer">
         <span class="page-link text-info " onclick="paginationChangePage($(this.form), 1)">First</span>
-    </bu>
-    <span class="page-item cursor-pointer">
+    </span>
+    <span class="w-auto page-item cursor-pointer">
         <span class="page-link text-info" onclick="paginationChangePage($(this.form), {{$previousPage}})">Prev</span>
     </span>
-    <span class="page-item cursor-pointer">
+    <span class="w-25 page-item cursor-pointer">
         <?php
         $EInput = new EInput();
-        $EInput->setClass('w-auto text-center');
+        $EInput->setClass('text-center');
         $EInput->setName('currentPage');
         $EInput->setValue($currentPage);
         $EInput->setType('number');
@@ -23,10 +23,10 @@ $nextPage = $nextPage ?? 1;
         $EInput->show();
         ?>
     </span>
-    <span class="page-item cursor-pointer">
+    <span class="w-auto page-item cursor-pointer">
         <span class="page-link text-info" onclick="paginationChangePage($(this.form), {{$nextPage}})">Next</span>
     </span>
-    <span class="page-item cursor-pointer">
+    <span class="w-auto page-item cursor-pointer">
         <span class="page-link text-info" onclick="paginationChangePage($(this.form), {{$lastPage}})">Last</span>
     </span>
 </div>

@@ -20,14 +20,17 @@
                                     $EInput->setName('filterKeyword');
                                     $EInput->setType('text');
                                     $EInput->setPlaceholder('關鍵字');
+                                    $EInput->setValue(request()->input($EInput->getName()));
+                                    $EInput->isColored();
                                     $EInput->show();
                                     ?>
                                     {{-- 搜尋欄位 --}}
                                     <?php
                                     $ESelect = new \Libraries\element\ESelect();
                                     $ESelect->setName('filterKeywordField');
-                                    $ESelect->setSelectedOption(request()->input(''));
+                                    $ESelect->setSelectedOption(request()->input($ESelect->getName()));
                                     $ESelect->setFirstOption();
+                                    $ESelect->isColored();
                                     $ESelect->show();
                                     ?>
                                 </div>
@@ -79,6 +82,7 @@
                                                 2 => '21231231',
                                                 3 => '323123',
                                             ]);
+                                            $ESelect->isColored();
                                             $ESelect->show();
                                             ?>
                                         </div>
@@ -98,6 +102,7 @@
                                                 2 => '21231231',
                                                 3 => '323123',
                                             ]);
+                                            $ESelect->isColored();
                                             $ESelect->show();
                                             ?>
                                         </div>
@@ -117,6 +122,7 @@
                                                 2 => '21231231',
                                                 3 => '323123',
                                             ]);
+                                            $ESelect->isColored();
                                             $ESelect->show();
                                             ?>
                                         </div>

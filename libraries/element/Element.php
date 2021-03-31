@@ -18,7 +18,6 @@ abstract class Element implements ViewRender
 
     /**
      * @param null $name
-
      */
     public function setName($name)
     {
@@ -27,7 +26,6 @@ abstract class Element implements ViewRender
 
     /**
      * @param null $id
-
      */
     public function setId($id)
     {
@@ -36,7 +34,6 @@ abstract class Element implements ViewRender
 
     /**
      * @param null $class
-
      */
     public function setClass($class)
     {
@@ -45,7 +42,6 @@ abstract class Element implements ViewRender
 
     /**
      * @param array $classes
-
      */
     public function setClasses(array $classes)
     {
@@ -61,6 +57,14 @@ abstract class Element implements ViewRender
     }
 
     /**
+     * @param bool $isColored
+     */
+    public function isColored(bool $isColored = true)
+    {
+        $isColored ? $this->setClasses(['isColored']) : null;
+    }
+
+    /**
      * @param bool $disabled
      */
     public function isDisabled(bool $disabled = true)
@@ -70,7 +74,6 @@ abstract class Element implements ViewRender
 
     /**
      * @param bool $required
-
      */
     public function isRequired(bool $required = true)
     {
@@ -83,5 +86,13 @@ abstract class Element implements ViewRender
     public function isReadonly(bool $readonly = true)
     {
         $this->readonly = $readonly;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

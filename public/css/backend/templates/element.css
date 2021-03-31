@@ -1,3 +1,22 @@
+/* Remove Chrome input background color when autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 20px white inset !important;
+}
+
+/*
+.form-check
+01. 用在 checkbox、radio
+02. 重新架構 form-check(label 包住 input)
+03. 高度固定為 1.5rem
+*/
+
+/*
+.form-check-sign 選取框區塊
+01. 包含：.check
+*/
 .form-check .form-check-sign {
     left: 0;
     top: 0;
@@ -13,15 +32,7 @@
     padding-left: .25rem;
 }
 
-pre {
-    margin-bottom: 0;
-}
-
-.cursor-pointer{
-    cursor: pointer;
-}
-
-/* image */
+/*============ image ===============*/
 .elementImage .imageThumbnail {
     object-fit: cover;
     overflow: hidden;
@@ -53,7 +64,34 @@ pre {
     height: 500px;
 }
 
-/* file */
+/*============ file ===============*/
 .elementFile .custom-file-label::after {
     content: "選擇檔案";
 }
+
+/*============ isColored ===============*/
+select.isColored {
+    background-color: #fff;
+}
+
+input.isColored.active,
+select.isColored.active {
+    background-color: #FAF4FF;
+}
+
+input:-webkit-autofill.isColored.active,
+input:-webkit-autofill.isColored.active:hover,
+input:-webkit-autofill.isColored.active:focus,
+input:-webkit-autofill.isColored.active:active {
+    -webkit-box-shadow: 0 0 0 20px #FAF4FF inset !important;
+}
+
+select.isColored + .btn-group > .multiselect.btn {
+    background-color: #fff;
+}
+
+select.isColored.active + .btn-group > .multiselect.btn {
+    background-color: #FAF4FF;
+    padding-left: .6rem;
+}
+

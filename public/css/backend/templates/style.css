@@ -1,3 +1,31 @@
+pre {
+    margin-bottom: 0;
+}
+
+/*============ 自訂 scrollbar ===============*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #636f83;
+    box-shadow: inset 0 0 2px #4f5d73;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b1b7c1;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c4c9d0;
+}
+
 /*============ Flex ===============*/
 .flex-grow-3 {
     -ms-flex-positive: 3 !important;
@@ -18,3 +46,11 @@
     color: #fff;
 }
 
+/*============ cursor ===============*/
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-initial {
+    cursor: initial;
+}

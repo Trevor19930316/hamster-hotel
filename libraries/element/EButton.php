@@ -20,6 +20,8 @@ class EButton implements ViewRender
     protected $onclick = null;
     protected $disabled = false;
     protected $textResponsive = true;
+    protected $tooltipPlacement = 'bottom';
+    protected $tooltipText = null;
 
     public function view()
     {
@@ -59,7 +61,6 @@ class EButton implements ViewRender
 
     /**
      * @param array $classes
-
      */
     public function setClasses(array $classes)
     {
@@ -105,6 +106,20 @@ class EButton implements ViewRender
     }
 
     /**
+     * @param $tooltipText
+     * @param string $tooltipPlacement
+     */
+    public function setTooltip($tooltipText, string $tooltipPlacement = 'bottom')
+    {
+        if (!in_array($tooltipPlacement, ['auto', 'top', 'bottom', 'left', 'right'])) {
+            throw new RuntimeException("EButton setTooltip($tooltipPlacement) is invalid.");
+        }
+
+        $this->tooltipText = $tooltipText;
+        $this->tooltipPlacement = $tooltipPlacement;
+    }
+
+    /**
      * @param null $onclick
      */
     public function setOnclick($onclick)
@@ -141,6 +156,14 @@ class EButton implements ViewRender
     {
         $this->iconPosition = 'right';
         $this->icon = $this->getIcon($icon);
+    }
+
+    /**
+     * @param bool $disabled
+     */
+    public function isDisabled(bool $disabled = true)
+    {
+        $this->disabled = $disabled;
     }
 
     /**

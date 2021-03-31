@@ -8,12 +8,15 @@ trait BaseClass
 {
     /**
      * reset the object vars
+     * @param $exceptionVars
      */
-    protected function reset()
+    protected function reset($exceptionVars = [])
     {
         $vars = get_class_vars(get_class($this));
         foreach ($vars as $var => $varDef) {
-            $this->$var = $varDef;
+            if (!in_array($var, $exceptionVars)) {
+                $this->$var = $varDef;
+            }
         }
     }
 

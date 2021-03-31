@@ -4,6 +4,10 @@ return [
     'icon-class' => [
         'arrow-left' => 'cil-arrow-left',
         'arrow-right' => 'cil-arrow-right',
+        'angle-left' => 'fa-fw fas fa-angle-left fa-fw',
+        'angle-right' => 'fa-fw fas fa-angle-right fa-fw',
+        'angle-double-left' => 'fa-fw fas fa-angle-double-left fa-fw',
+        'angle-double-right' => 'fa-fw fas fa-angle-double-right fa-fw',
         'check-alt' => 'check-alt',
         'x' => 'cil-x',
         'link' => 'cil-link',
@@ -32,6 +36,10 @@ return [
     'icon-text' => [
         'arrow-left' => '返回',
         'arrow-right' => '未定義',
+        'angle-left' => '上一頁',
+        'angle-right' => '下一頁',
+        'angle-double-left' => '第一頁',
+        'angle-double-right' => '最終頁',
         'check-alt' => '上線',
         'x' => '無效',
         'link' => '連結',

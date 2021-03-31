@@ -146,6 +146,5 @@ class EInput extends Element
     public function isTextNumber(bool $textNumber = true)
     {
         $this->textNumber = true;
-        $this->type = 'number';
     }
 }

@@ -36,7 +36,7 @@ $(function () {
 
 function paginationChangePage(form, page) {
 
-    let inputPage = form.find("input[name=currentPage]");
+    let inputPage = form.find("input[name=page]");
     inputPage.val(page);
 
     formDisabledNullElements(form);

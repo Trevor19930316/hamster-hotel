@@ -48,7 +48,7 @@ class EFile extends Element
     public function show()
     {
         echo $this->view();
-        $this->reset();
+        $this->reset(['fileExtensions', 'imageExtensions', 'fileQuantities', 'fileExtensionsLimit']);
     }
 
     /**

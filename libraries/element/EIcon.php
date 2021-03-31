@@ -2,7 +2,6 @@
 
 namespace Libraries\element;
 
-
 use Libraries\BaseClass;
 use RuntimeException;
 
@@ -39,7 +38,7 @@ class EIcon implements ViewRender
     public function show()
     {
         echo $this->view();
-        $this->reset();
+        $this->reset(['icons', 'iconsText']);
     }
 
     /**
@@ -97,6 +96,6 @@ class EIcon implements ViewRender
      */
     public function getIconText()
     {
-       return $this->title;
+        return $this->title;
     }
 }

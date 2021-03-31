@@ -13,7 +13,7 @@ class EPagination implements ViewRender
     use BaseClass;
 
     protected $lastPage = null;
-    protected $currentPage = null;
+    protected $page = null;
     protected $previousPage = null;
     protected $nextPage = null;
 
@@ -41,13 +41,13 @@ class EPagination implements ViewRender
         // 最後一頁
         $this->lastPage = $pagination->lastPage();
         // 當前頁數
-        $this->currentPage = intval(request()->input('page'));
-        $this->currentPage = $this->currentPage < 1 ? 1 : $this->currentPage;
+        $this->page = intval(request()->input('page'));
+        $this->page = $this->page < 1 ? 1 : $this->page;
         // 上一頁
-        $this->previousPage = $this->currentPage - 1;
+        $this->previousPage = $this->page - 1;
         $this->previousPage = $this->previousPage < 1 ? 1 : $this->previousPage;
         // 下一頁
-        $this->nextPage = $this->currentPage + 1;
+        $this->nextPage = $this->page + 1;
         $this->nextPage = $this->nextPage > $this->lastPage ? $this->lastPage : $this->nextPage;
     }
 
@@ -55,8 +55,8 @@ class EPagination implements ViewRender
      * @param $page
      * 設定當前頁數
      */
-    public function setCurrentPage($page)
+    public function setPage($page)
     {
-        $this->currentPage = $page instanceof Request ? intval(request()->input('page')) : $page;
+        $this->page = $page instanceof Request ? intval(request()->input('page')) : $page;
     }
 }

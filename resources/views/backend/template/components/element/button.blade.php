@@ -8,6 +8,8 @@ $iconPosition = $iconPosition ?? 'left';
 $onclick = $onclick ?? null;
 $disabled = $disabled ?? false;
 $textResponsive = $textResponsive ?? true;
+$tooltipText = $tooltipText ?? null;
+$tooltipPlacement = $tooltipPlacement ?? 'bottom';
 ?>
 <button
     class="{!! join(' ', $class) !!}"
@@ -16,6 +18,11 @@ $textResponsive = $textResponsive ?? true;
     {!! !is_null($type) ? 'type="'.$type.'"' : null !!}
     {!! !is_null($onclick) ? 'onclick="'.$onclick.'"' : null !!}
     {!! $disabled ? 'disabled' : null !!}
+    @if (!is_null($tooltipText))
+    data-toggle="tooltip"
+    data-placement="{{$tooltipPlacement}}"
+    title="{!! $tooltipText !!}"
+    @endif
 >
     @if(!is_null($icon))
         @if($iconPosition=='left')

@@ -18,7 +18,9 @@ class UsersController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::orderBy('id', 'asc')->get();
+        $sqlBuilder = User::orderBy('id', 'asc');
+//        $users = User::orderBy('id', 'asc')->paginate(config('backend.pagination'));
+        $users = $sqlBuilder->paginate(1);
 
         $data = [
             'users' => $users

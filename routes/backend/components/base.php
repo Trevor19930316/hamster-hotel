@@ -18,6 +18,10 @@ Route::prefix('base')->group(function () {
         return view('backend.components.base.form');
     });
 
+    Route::get('/filter', function () {
+        return view('backend.components.base.filter');
+    });
+
     Route::get('/input-group', function () {
         return view('backend.components.base.input-group');
     });

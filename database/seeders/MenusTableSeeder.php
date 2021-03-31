@@ -14,8 +14,6 @@ class MenusTableSeeder extends Seeder
     private $dropdown = false;
     private $sequence = 1;
     private $joinData = array();
-    private $adminRole = null;
-    private $viewerRole = null;
     private $subFolder = '';
 
     public function join($roles, $menusId)
@@ -27,8 +25,8 @@ class MenusTableSeeder extends Seeder
     }
 
     /*
-        Function assigns menu elements to roles
-        Must by use on end of this seeder
+    Function assigns menu elements to roles
+    Must by use on end of this seeder
     */
     public function joinAllByTransaction()
     {
@@ -150,22 +148,27 @@ class MenusTableSeeder extends Seeder
 
         $this->insertLink('Public', 'Login', '/backend/login', 'cil-account-logout');
 
+        // Components
         $this->insertTitle($SuperAdminRole, 'Components');
 
+        // Base
         $this->beginDropdown($SuperAdminRole, 'Base', 'cil-puzzle');
         $this->insertLink($SuperAdminRole, 'Breadcrumb', '/backend/components/base/breadcrumb');
         $this->insertLink($SuperAdminRole, 'Cards', '/backend/components/base/cards');
         $this->insertLink($SuperAdminRole, 'Tables', '/backend/components/base/tables');
         $this->insertLink($SuperAdminRole, 'Form', '/backend/components/base/form');
+        $this->insertLink($SuperAdminRole, 'Filter', '/backend/components/base/filter');
         $this->insertLink($SuperAdminRole, 'Input Group', '/backend/components/base/input-group');
         $this->endDropdown();
 
+        // Notifications
         $this->beginDropdown($SuperAdminRole, 'Notifications', 'cil-bell');
         $this->insertLink($SuperAdminRole, 'Alerts', '/backend/components/notifications/alerts');
         $this->insertLink($SuperAdminRole, 'Badges', '/backend/components/notifications/badges');
         $this->insertLink($SuperAdminRole, 'Modals', '/backend/components/notifications/modals');
         $this->endDropdown();
 
+        // Element
         $this->beginDropdown($SuperAdminRole, 'Element', 'cil-diamond');
         $this->insertLink($SuperAdminRole, 'Input', '/backend/components/element/input');
         $this->insertLink($SuperAdminRole, 'Checkbox', '/backend/components/element/checkbox');

@@ -9,6 +9,9 @@ Route::post('login', [LoginController::class, 'login'])->name('backend.login');
 // 登出
 Route::get('logout', [LoginController::class, 'logout'])->name('backend.logout');
 
+// http_status_code
+require 'http_status_code/http_status_code.php';
+
 // test
 require 'test.php';
 

@@ -22361,3 +22361,19 @@ body {
   cursor: pointer;
 }
 
+/* http_status_code */
+.http-status-code-title {
+    font-size: 8rem;
+    line-height: 10rem;
+    font-weight: 500;
+}
+
+.http-status-code-subtitle {
+    font-size: 4rem;
+    line-height: 4rem;
+}
+
+.http-status-code-content {
+    font-size: 1.5rem;
+    font-weight: 300;
+}

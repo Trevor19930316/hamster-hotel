@@ -200,8 +200,10 @@ class MenusTableSeeder extends Seeder
         ]);
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
 
+        // 設定
         $this->beginDropdown($SuperAdminRole . 'Admin', '設定');
-        $this->insertLink($SuperAdminRole . 'Admin', 'Users', '/backend/settings/users/index');
+        $this->insertLink($SuperAdminRole . 'Admin', '使用者', '/backend/settings/users/index');
+        $this->insertLink($SuperAdminRole . 'Admin', '角色', '/backend/settings/roles/index');
         $this->endDropdown();
 
         $this->joinAllByTransaction(); ///   <===== Must by use on end of this seeder

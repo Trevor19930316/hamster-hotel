@@ -13,26 +13,29 @@
         @slot('formContent')
             {{-- 搜尋 模組 --}}
             @component('backend.template.components.base.filter.filter')
-                <?php
-                $filterKeywordField = [
-                    'name' => '名稱',
-                    'email' => 'Email',
-                ];
-                ?>
-                @slot('filterKeywordField',$filterKeywordField)
             @endcomponent
             <div class="row">
                 <div class="col-sm-12">
                     @component('backend.template.components.base.cards.card')
                         @slot('cardContent')
+                            <div class="mb-3 text-right">
+                                @can('roles.create')
+                                    <?php
+                                    $EButtonA = new \Libraries\element\EButtonA();
+                                    $EButtonA->setClass('btn-outline-dark');
+                                    $EButtonA->setIcon('plus');
+                                    $EButtonA->setLink(route('backend.settings.roles.create'));
+                                    $EButtonA->show();
+                                    ?>
+                                @endcan
+                            </div>
                             @component('backend.template.components.base.tables.table')
                                 @slot('tableThead')
                                     <tr>
                                         <th>id</th>
                                         <th>名稱</th>
-                                        <th>Email</th>
                                         <th>
-                                            @can('users.create')
+                                            @can('roles.create')
                                             @endcan
                                             @role('Super-Admin')
                                             @endrole
@@ -40,26 +43,24 @@
                                     </tr>
                                 @endslot
                                 @slot('tableTbody')
-                                    @foreach($users as $user)
+                                    @foreach($roles as $role)
                                         <tr>
                                             <td>
-                                                {{$user->id}}
+                                                {{$role->id}}
                                             </td>
                                             <td>
-                                                {{$user->name}}
+                                                <a href="{{route('backend.settings.roles.show',['roles_id'=>$role->id])}}">
+                                                    {{$role->name}}
+                                                </a>
                                             </td>
                                             <td>
-                                                {{$user->email}}
-                                            </td>
-                                            <td>
-
                                             </td>
                                         </tr>
                                     @endforeach
                                 @endslot
                             @endcomponent
                             <?php
-                            $EPagination->setPagination($users);
+                            $EPagination->setPagination($roles);
                             $EPagination->show();
                             ?>
                         @endslot

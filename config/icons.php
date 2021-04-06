@@ -16,7 +16,7 @@ return [
         'reload' => 'cil-reload',
         'hand-point-up' => 'cil-hand-point-up',
         'save' => 'cil-save',
-        'plus' => 'cil-plus',
+        'plus' => 'fas fa-plus',
         'trash' => 'cil-trash',
         'swap-vertical' => 'cil-swap-vertical',
         'cloud-download' => 'cil-cloud-download',

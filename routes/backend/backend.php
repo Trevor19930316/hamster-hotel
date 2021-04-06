@@ -26,6 +26,8 @@ Route::middleware(['auth:web'])->group(function () {
         Route::prefix('settings')->group(function () {
             // Users
             require 'settings/users.php';
+            // Roles
+            require 'settings/roles.php';
         });
 
         Route::group(['middleware' => ['role:Super-Admin']], function () {

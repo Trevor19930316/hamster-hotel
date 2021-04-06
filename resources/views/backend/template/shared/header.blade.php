@@ -114,7 +114,7 @@
                 {{--                        </svg>--}}
                 {{--                        Lock Account--}}
                 {{--                    </a>--}}
-                <a class="dropdown-item" href="{{route('backend.login.logout')}}">
+                <a class="dropdown-item" href="{{route('backend.logout')}}">
                     <svg class="c-icon mr-2">
                         <use xlink:href="{{ url('/icons/sprites/free.svg#cil-account-logout') }}"></use>
                     </svg>

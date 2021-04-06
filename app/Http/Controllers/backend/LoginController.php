@@ -71,6 +71,6 @@ class LoginController extends Controller
         // 清空 User session
         HelperSession::clearUserSession();
 
-        return redirect()->route('backend.login.login');
+        return redirect()->route('backend.loginPage');
     }
 }

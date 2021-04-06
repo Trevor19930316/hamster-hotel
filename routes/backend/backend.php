@@ -3,11 +3,11 @@
 use App\Http\Controllers\backend\LoginController;
 
 // 登入頁
-Route::get('login', [LoginController::class, 'show'])->name('backend.login.show');
+Route::get('loginPage', [LoginController::class, 'show'])->name('backend.loginPage');
 // 登入
-Route::post('login', [LoginController::class, 'login'])->name('backend.login.login');
+Route::post('login', [LoginController::class, 'login'])->name('backend.login');
 // 登出
-Route::get('logout', [LoginController::class, 'logout'])->name('backend.login.logout');
+Route::get('logout', [LoginController::class, 'logout'])->name('backend.logout');
 
 // test
 require 'test.php';

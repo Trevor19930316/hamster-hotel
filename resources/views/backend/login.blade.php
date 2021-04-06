@@ -79,7 +79,7 @@
 @section('content')
     <div class="container-fluid login-container">
         <div class="login-form">
-            <form action="{{route('backend.login.login')}}" method="post">
+            <form action="{{route('backend.login')}}" method="post">
                 @csrf
                 <h2 class="text-center">Hello</h2>
                 <div class="form-group">

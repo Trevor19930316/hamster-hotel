@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
     {
         $guard = $exception->guards()[0];
 
-        $routeName = 'backend.login.login';
+        $routeName = 'backend.loginPage';
 
 //        if ($guard == 'web') {
 //

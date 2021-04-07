@@ -11,14 +11,14 @@ Route::prefix('http_status_code')->group(function () {
     });
 
     Route::get('/419', function () {
-        return view('backend.http_status_code.404');
+        return view('backend.http_status_code.419');
     });
 
     Route::get('/422', function () {
-        return view('backend.http_status_code.404');
+        return view('backend.http_status_code.422');
     });
 
     Route::get('/500', function () {
-        return view('backend.http_status_code.404');
+        return view('backend.http_status_code.500');
     });
 });

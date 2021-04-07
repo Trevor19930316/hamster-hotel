@@ -187,8 +187,11 @@ class MenusTableSeeder extends Seeder
         $this->beginDropdown($SuperAdminRole, 'Pages', 'cil-star');
         $this->insertLink($SuperAdminRole, 'Login', '/backend/login');
 //        $this->insertLink('Viewer,Admin', 'Register', '/register');
-//        $this->insertLink('Viewer,Admin', 'Error 404', '/404');
-//        $this->insertLink('Viewer,Admin', 'Error 500', '/500');
+        $this->insertLink($SuperAdminRole, 'Error 403', '/backend/http_status_code/403');
+        $this->insertLink($SuperAdminRole, 'Error 404', '/backend/http_status_code/404');
+        $this->insertLink($SuperAdminRole, 'Error 419', '/backend/http_status_code/419');
+        $this->insertLink($SuperAdminRole, 'Error 422', '/backend/http_status_code/422');
+        $this->insertLink($SuperAdminRole, 'Error 500', '/backend/http_status_code/500');
         $this->endDropdown();
 
 //        $this->insertLink('Admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');

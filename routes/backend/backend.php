@@ -19,10 +19,9 @@ Route::middleware(['auth:web'])->group(function () {
 
     Route::group(['middleware' => ['get.menu']], function () {
 
+        // 首頁
         Route::get('dashboard', function () {
-
             return view('backend.dashboard');
-
         })->name('backend.dashboard');
 
         // settings
@@ -32,6 +31,11 @@ Route::middleware(['auth:web'])->group(function () {
             // Roles
             require 'settings/roles.php';
         });
+
+        // 權限不足頁
+        Route::get('permissionDenyPage', function () {
+            return view('backend.global.permissionDenyPage');
+        })->name('backend.global.permissionDenyPage');
 
         Route::group(['middleware' => ['role:Super-Admin']], function () {
 

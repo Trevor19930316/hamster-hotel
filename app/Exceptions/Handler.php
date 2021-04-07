@@ -60,11 +60,34 @@ class Handler extends ExceptionHandler
         return redirect()->guest(route($routeName));
     }
 
+    /**
+     * 頁面轉導處理
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Throwable $e
+     * @return \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+     * @throws Throwable
+     */
     public function render($request, Throwable $e)
     {
         if ($this->isHttpException($e)) {
-            if ($e->getStatusCode() == 404) {
-                return response()->view('backend.http_status_code.404', [], 404);
+            $httpStatusCode = $e->getStatusCode();
+            switch ($httpStatusCode) {
+                case 403:
+                    return response()->view('backend.http_status_code.403', [], $httpStatusCode);
+                    break;
+                case 404:
+                    return response()->view('backend.http_status_code.404', [], $httpStatusCode);
+                    break;
+                case 419:
+                    return response()->view('backend.http_status_code.419', [], $httpStatusCode);
+                    break;
+                case 422:
+                    return response()->view('backend.http_status_code.422', [], $httpStatusCode);
+                    break;
+                case 500:
+                    return response()->view('backend.http_status_code.500', [], $httpStatusCode);
+                    break;
             }
         }
 

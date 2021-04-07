@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+// 維護頁
+Route::get('maintainPage', function (){
+    return view('backend.global.maintainPage');
+})->name('backend.global.maintainPage');
 
 // 前台
 require 'frontend/frontend.php';

@@ -186,6 +186,8 @@ class MenusTableSeeder extends Seeder
 
         $this->beginDropdown($SuperAdminRole, 'Pages', 'cil-star');
         $this->insertLink($SuperAdminRole, 'Login', '/backend/login');
+        $this->insertLink($SuperAdminRole, 'Maintain Page', '/maintainPage');
+        $this->insertLink($SuperAdminRole, 'PermissionDeny Page', '/backend/permissionDenyPage');
 //        $this->insertLink('Viewer,Admin', 'Register', '/register');
         $this->insertLink($SuperAdminRole, 'Error 403', '/backend/http_status_code/403');
         $this->insertLink($SuperAdminRole, 'Error 404', '/backend/http_status_code/404');

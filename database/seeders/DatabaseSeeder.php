@@ -23,13 +23,14 @@ class DatabaseSeeder extends Seeder
         */
 
         $this->call([
-            ArticleSeeder::class,
-            OwnerSeeder::class,
-            HamsterSeeder::class,
             ApiUserSeeder::class,
+            ArticleSeeder::class,
+            HamsterSeeder::class,
             MenusTableSeeder::class,
+            OwnerSeeder::class,
             PermissionSeeder::class,
             UserSeeder::class,
+            SystemCodeSeeder::class,
         ]);
 
     }

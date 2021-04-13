@@ -52,11 +52,11 @@ class EPagination implements ViewRender
     }
 
     /**
-     * @param $page
+     * @param null $page
      * 設定當前頁數
      */
-    public function setPage($page)
+    public function setPage($page = null)
     {
-        $this->page = $page instanceof Request ? intval(request()->input('page')) : $page;
+        $this->page = is_null($page) ? intval(request()->input('page')) : intval($page);
     }
 }

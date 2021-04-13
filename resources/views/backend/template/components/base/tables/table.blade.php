@@ -18,7 +18,7 @@ $tableThead = $tableThead ?? null;
 /* table tbody */
 $tableTbody = $tableTbody ?? null;
 ?>
-<table class="table table-responsive-sm {{$tableTypeClass}}">
+<table class="table table-responsive-sm table-hover {{$tableTypeClass}}">
     <thead>
     {!! $tableThead !!}
     </thead>

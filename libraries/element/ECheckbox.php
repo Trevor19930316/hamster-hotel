@@ -10,18 +10,17 @@ class ECheckbox extends Element
     protected $class = ['form-check-input'];
     protected $checkboxData = [];
     protected $checkedValue = null;
+    protected $onclick = null;
     protected $inline = false;
 
     public function view()
     {
         $data = $this->getClassVar();
-
         return view('backend.template.components.element.input-checkbox', $data)->render();
     }
 
     public function show()
     {
-        //dump($this->getClassVar());
         echo $this->view();
         $this->reset();
     }
@@ -44,12 +43,19 @@ class ECheckbox extends Element
     }
 
     /**
-     * @param null $value
-     *
+     * @param null|string $value
      */
     public function setCheckedValue($value)
     {
         $this->checkedValue = $value;
+    }
+
+    /**
+     * @param null|string $onclick
+     */
+    public function setOnclick($onclick)
+    {
+        $this->onclick = $onclick;
     }
 
     /**
@@ -60,4 +66,25 @@ class ECheckbox extends Element
         $this->inline = $inline;
     }
 
+    /**
+     * 全選 checkbox
+     */
+    public function isCheckAll()
+    {
+        is_null($this->name) ? $this->setName('ids') : null;
+        $this->setClass('CheckAll');
+        $this->setOnclick('checkboxCheckAll($(this))');
+        $this->setSingleCheckboxValue(null, null);
+        $this->setCheckedValue(old($this->name, request()->input($this->name)));
+    }
+
+    /**
+     * @param integer $id
+     */
+    public function isCheckId($id)
+    {
+        is_null($this->name) ? $this->setName('ids') : null;
+        $this->setSingleCheckboxValue($id, null);
+        $this->setCheckedValue(old($this->name, request()->input($this->name)));
+    }
 }

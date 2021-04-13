@@ -1,5 +1,10 @@
 $(function () {
 
+    checkboxCheckAllStatus('ids[]');
+    $("input[name='ids[]']").click(function () {
+        checkboxCheckAllStatus('ids[]');
+    });
+
     // file input
     $(".custom-file-input").on("change", function () {
         const fileName = $(this).val().split("\\").pop();
@@ -41,4 +46,19 @@ function paginationChangePage(form, page) {
 
     formDisabledNullElements(form);
     form.submit();
+}
+
+// checkbox 全選
+function checkboxCheckAll(checkboxAll) {
+    const checkboxAllStatus = checkboxAll.is(':checked');
+    const checkboxName = checkboxAll.attr('name');
+    const checkboxes = $("input[name='" + checkboxName + "']");
+    checkboxes.prop('checked', checkboxAllStatus);
+}
+
+function checkboxCheckAllStatus(checkboxName) {
+    const checkboxAll = $("input[name='" + checkboxName + "'].CheckAll");
+    const checkboxes = $("input[name='" + checkboxName + "']").not(".CheckAll");
+    const checkedBoxes = $("input[name='" + checkboxName + "']:checked").not(".CheckAll");
+    checkboxAll.prop("checked", (checkboxes.length === checkedBoxes.length && checkboxes.length !== 0));
 }

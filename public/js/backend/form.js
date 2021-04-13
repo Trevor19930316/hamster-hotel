@@ -4,6 +4,13 @@ $(function () {
 
         const form = $(this);
 
+        if (form.attr('method') === 'get') {
+            form.find("input[name='ids[]']").prop('disabled', true);
+            form.find("input[type='text'].sorts").prop('disabled', true);
+            form.find("input[name='_method']").val('');
+            form.find("input[name='_token']").val('');
+        }
+
         formSubmitLoading(form);
 
         const formName = form.attr('name');

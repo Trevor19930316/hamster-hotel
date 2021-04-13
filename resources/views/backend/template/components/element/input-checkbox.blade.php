@@ -7,6 +7,7 @@ $checkedValue = $checkedValue ?? null;
 $disabled = $disabled ?? false;
 $required = $required ?? false;
 $readonly = $readonly ?? false;
+$onclick = $onclick ?? null;
 $inline = $inline ?? false;
 ?>
 @foreach($checkboxData as $value => $text)
@@ -16,8 +17,10 @@ $inline = $inline ?? false;
                 <input
                     type="checkbox"
                     class="{!! join(' ', $class) !!}"
-                    {!! !is_null($name) ? 'name="'.$name.'"' : null !!}
+                    value="{!! $value !!}"
+                    {!! !is_null($name) ? 'name="'.$name.'[]"' : null !!}
                     {!! !is_null($id) ? 'id="'.$id.'"' : null !!}
+                    {!! !is_null($onclick) ? 'onclick="' . $onclick . '"' : null; !!}
                     {!! $disabled ? 'disabled' : null !!}
                     {!! $required ? 'required' : null !!}
                     {!! $readonly ? 'readonly' : null !!}

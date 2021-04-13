@@ -17,6 +17,7 @@ input:-webkit-autofill:active {
 .form-check-sign 選取框區塊
 01. 包含：.check
 */
+
 .form-check .form-check-sign {
     left: 0;
     top: 0;
@@ -30,6 +31,64 @@ input:-webkit-autofill:active {
 
 .form-check .form-check-text {
     padding-left: .25rem;
+}
+
+/*============ table 相關設定 ===============*/
+
+/*table hover*/
+
+.table-hover tbody tr {
+    transition: background-color .3s;
+}
+
+.table-hover tbody tr:hover {
+    color: inherit;
+    /*background-color: rgba(0, 123, 252, .125) !important;*/
+}
+
+.table-hover tr.no-hover:hover {
+    background-color: inherit;
+}
+
+.table-hover tr.no-hover.alert-danger:hover {
+    background-color: #f8d7da;
+}
+
+.table-hover tr.no-hover.alert-primary:hover {
+    background-color: #cce5ff;
+}
+
+.table-hover tr.no-hover.alert-success:hover {
+    background-color: #d4edda;
+}
+
+.table-hover tr.no-hover.bg-default:hover {
+    background-color: #f2faf4;
+}
+
+.table-hover tr.no-hover.alert-warning:hover {
+    background-color: #fff3cd;
+}
+
+/*th,td 相關設定*/
+
+.table thead th {
+    border-top: 0;
+    vertical-align: middle;
+}
+
+/* 欄位 checkbox */
+td.checkbox,
+th.checkbox {
+    width: 50px;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* 欄位寬度 自適應 */
+td.fit-content,
+th.fit-content {
+    width: 1px;
 }
 
 /*============ image ===============*/

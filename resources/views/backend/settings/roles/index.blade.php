@@ -1,6 +1,7 @@
 @extends('backend.template.base')
 @section('htmlHeadPlugin')
     <?php
+    $ECheckbox = new Libraries\element\ECheckbox();
     $EPagination = new Libraries\element\EPagination;
     ?>
 @endsection
@@ -32,7 +33,13 @@
                             @component('backend.template.components.base.tables.table')
                                 @slot('tableThead')
                                     <tr>
-                                        <th>id</th>
+                                        <th class="checkbox">
+                                            <?php
+                                            $ECheckbox->isCheckAll();
+                                            $ECheckbox->show();
+                                            ?>
+                                        </th>
+                                        <th class="fit-content">id</th>
                                         <th>名稱</th>
                                         <th>
                                             @can('roles.create')
@@ -45,7 +52,13 @@
                                 @slot('tableTbody')
                                     @foreach($roles as $role)
                                         <tr>
-                                            <td>
+                                            <td class="checkbox">
+                                                <?php
+                                                $ECheckbox->isCheckId($role->id);
+                                                $ECheckbox->show();
+                                                ?>
+                                            </td>
+                                            <td class="fit-content">
                                                 {{$role->id}}
                                             </td>
                                             <td>

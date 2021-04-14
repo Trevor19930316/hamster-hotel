@@ -19,11 +19,12 @@ class RolesController extends Controller
     public function index(Request $request)
     {
         $Role = new Role();
-        $sqlBuilder = $Role->orderBy('id', 'asc');
+        $sqlBuilder = $Role->orderBy('roles.id', 'asc');
+        $sqlBuilder->leftJoin('role_hierarchy', 'roles.id', '=', 'role_hierarchy.role_id');
         $roles = $sqlBuilder->paginate(config('backend.pagination'));
 
         $data = [
-            'roles' => $roles
+            'roles' => $roles,
         ];
 
         return view('backend.settings.roles.index', $data);

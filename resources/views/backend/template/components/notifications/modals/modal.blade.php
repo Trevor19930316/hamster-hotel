@@ -48,9 +48,11 @@ if ($modalTheme == 'primary') {
                     </button>
                 </div>
             @endif
-            <div class="modal-body">
-                {!! $modalContent !!}
-            </div>
+            @if (!is_null($modalContent))
+                <div class="modal-body">
+                    {!! $modalContent !!}
+                </div>
+            @endif
             <div class="modal-footer">
                 @if (!is_null($modalFooter))
                     {!! $modalFooter !!}

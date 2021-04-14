@@ -62,3 +62,35 @@ function checkboxCheckAllStatus(checkboxName) {
     const checkedBoxes = $("input[name='" + checkboxName + "']:checked").not(".CheckAll");
     checkboxAll.prop("checked", (checkboxes.length === checkedBoxes.length && checkboxes.length !== 0));
 }
+
+// 檢查是否有勾選要變更資料的 checkbox
+function checkboxIsNotEmpty(form) {
+    const checkboxes = form.find("input[name='ids[]']:checked").not(".CheckAll");
+    return !(checkboxes.length === 0);
+}
+
+// 排序修改 ( 把對應的 checkbox 也打勾 )
+function handleSetSort(form, sortInput) {
+    const id = sortInput.data('id');
+    const belongCheckbox = form.find("input[name='ids[]'][value='" + id + "']");
+    belongCheckbox.prop('checked', true);
+}
+
+// 排序修改 確認
+function setSortConfirm(form, formActionUrl) {
+    if (checkboxIsNotEmpty(form)) {
+        modalShow('setSortConfirm');
+    } else {
+        modalShow('pleaseChooseData');
+    }
+}
+
+// 排序修改
+function setSortSubmit(form) {
+    // form.attr('action', formActionFormAction);
+    // form.attr('method', 'post');
+    // form.find("input[name='_method']").val('patch');
+    // form.find("input[name='_token']").val('<?=csrf_token();?>');
+    // form.submit();
+}
+

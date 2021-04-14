@@ -33,6 +33,99 @@ input:-webkit-autofill:active {
     padding-left: .25rem;
 }
 
+/*============ Button ===============*/
+a.btn.disabled,
+fieldset:disabled a.btn {
+    cursor: not-allowed;
+}
+
+.btnIcon {
+    /*border-radius: 50%;*/
+    color: #333333;
+    font-size: 1rem !important;
+    line-height: 1rem;
+    padding: .2rem .35rem !important;
+    border: 0;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.btnIcon:disabled,
+.btnIcon.disabled {
+    color: inherit;
+    background-color: transparent !important;
+}
+
+th .btnIcon {
+    color: inherit;
+}
+
+
+.btnIcon.active {
+    color: #fff;
+}
+
+.btnIconDark.active {
+    background-color: rgba(52, 58, 64, 1);
+}
+
+@media (min-width: 576px) {
+    .btnIcon:hover,
+    .btnIcon:focus {
+        color: #fff;
+    }
+
+    /*== disabled ==*/
+    .btnIcon:disabled:hover,
+    .btnIcon:disabled:focus,
+    .btnIcon.disabled:hover,
+    .btnIcon.disabled:focus {
+        color: inherit;
+        background-color: transparent !important;
+    }
+
+    /*== 其他顏色 ==*/
+    .btnIconGray:hover,
+    .btnIconGray:focus {
+        background-color: rgba(0, 0, 0, .2);
+    }
+
+    .btnIconSuccess:hover,
+    .btnIconSuccess:focus {
+        background-color: rgba(40, 167, 69, 1);
+    }
+
+    .btnIconPrimary:hover,
+    .btnIconPrimary:focus {
+        background-color: rgba(0, 123, 255, 1);
+    }
+
+    .btnIconSecondary:hover,
+    .btnIconSecondary:focus {
+        background-color: rgba(108, 117, 125, 1);
+    }
+
+    .btnIconDanger:hover,
+    .btnIconDanger:focus {
+        background-color: rgba(220, 53, 69, 1);
+    }
+
+    .btnIconInfo:hover,
+    .btnIconInfo:focus {
+        background-color: rgba(25, 162, 184, 1);
+    }
+
+    .btnIconDark:hover,
+    .btnIconDark:focus {
+        background-color: rgba(52, 58, 64, 1);
+    }
+
+    .btnIconWarning:hover,
+    .btnIconWarning:focus {
+        background-color: rgba(255, 193, 7, 1);
+    }
+}
+
 /*============ table 相關設定 ===============*/
 
 /*table hover*/
@@ -77,12 +170,39 @@ input:-webkit-autofill:active {
     vertical-align: middle;
 }
 
+.table td {
+    height: 3.4rem;
+    vertical-align: middle;
+}
+
 /* 欄位 checkbox */
 td.checkbox,
 th.checkbox {
     width: 50px;
     min-width: 50px;
     text-align: center;
+}
+
+/* 欄位 排序 */
+td.sort,
+th.sort {
+    width: 50px;
+    min-width: 50px;
+    text-align: center;
+}
+
+td.sort > input.form-control,
+th.sort > input.form-control {
+    display: inline-block;
+    text-align: center;
+    width: auto;
+}
+
+/* 欄位 maintain */
+td.maintain,
+th.maintain {
+    width: 80px;
+    min-width: 80px;
 }
 
 /* 欄位寬度 自適應 */

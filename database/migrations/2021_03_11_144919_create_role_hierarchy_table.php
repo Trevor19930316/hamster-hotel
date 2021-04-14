@@ -17,7 +17,6 @@ class CreateRoleHierarchyTable extends Migration
             $table->id();
             $table->integer('role_id')->unsigned();
             $table->integer('hierarchy');
-            $table->timestamps();
         });
     }
 

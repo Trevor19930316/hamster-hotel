@@ -19,6 +19,8 @@ class EInput extends Element
     protected $onkeypress = null;
     protected $textNumber = false;
     protected $autocomplete = 'on';
+    protected $dataId = null;
+    protected $size = null;
 
     public function view()
     {
@@ -53,11 +55,23 @@ class EInput extends Element
 
     /**
      * @param null $value
-
      */
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param null|integer $dataId
+     */
+    public function setDataId($dataId)
+    {
+        $this->dataId = $dataId;
+    }
+
+    public function setSize($size)
+    {
+        $this->size = abs(intval($size));
     }
 
     /**
@@ -137,6 +151,22 @@ class EInput extends Element
     public function setAutocomplete($autocomplete = 'on')
     {
         $this->autocomplete = $autocomplete;
+    }
+
+    /**
+     * 設定排序
+     * @param integer $id
+     * @param integer $sort
+     */
+    public function setSort($id, $sort)
+    {
+        $this->setName('sorts' . $id);
+        $this->setClass('sorts');
+        $this->setDataId($id);
+        $this->setSize(3);
+        $this->setValue($sort);
+        $this->setOnchange("handleSetSort($(this.form),$(this))");
+        $this->isTextNumber();
     }
 
     /**

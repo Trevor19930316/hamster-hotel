@@ -129,19 +129,6 @@ class EButton implements ViewRender
 
     /**
      * @param $icon
-     * @return mixed
-     */
-    private function getIcon($icon)
-    {
-        $EIcon = new EIcon();
-        $EIcon->setIcon($icon);
-        $icon = $EIcon->view();
-
-        return $icon;
-    }
-
-    /**
-     * @param $icon
      */
     public function setLeftIcon($icon)
     {
@@ -156,6 +143,30 @@ class EButton implements ViewRender
     {
         $this->iconPosition = 'right';
         $this->icon = $this->getIcon($icon);
+    }
+
+    /**
+     * 設定排序
+     * @param $link
+     */
+    public function setSort($link)
+    {
+        $icon = $this->getIcon('setSort');
+        $this->setText($icon);
+        $this->setOnclick("setSortConfirm($(this.form),'" . $link . "');");
+    }
+
+    /**
+     * @param $icon
+     * @return mixed
+     */
+    private function getIcon($icon)
+    {
+        $EIcon = new EIcon();
+        $EIcon->setIcon($icon);
+        $icon = $EIcon->view();
+
+        return $icon;
     }
 
     /**
